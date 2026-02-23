@@ -29,7 +29,7 @@ export const projects: Project[] = [
     slug: 'innermost',
     title: 'innermost',
     tags: ['mini app', 'wellness', 'digital experience'],
-    description: 'Design and mindfulness product — defined the concept, built the brand, designed the app, and launched the web experience on World.',
+    description: 'A narrative-driven mindfulness product built end-to-end: from brand system and world-building to app architecture and live deployment. Launched as Innermost on World',
     ctas: [
       { text: 'website', url: 'https://www.innermost.life' },
       { text: 'download innermost', url: 'https://world.org/ecosystem/app_7e60435ce14a92c8fe155fa02c07b2f1' }
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     slug: 'edge-city-goods',
     title: 'edge city goods',
     tags: ['merch design', 'branding'],
-    description: 'Designed and launched a community merchandise line and literally myroverse translating digital identity into physical product.',
+    description: 'A community-driven merchandise line and Shopify storefront designed to translate a digital frontier network into physical identity.',
     media: [
       { src: '/images/tessaverse/edge-city-goods/egde-city-goods-banner.png', alt: 'Edge City Goods Merch' }
     ],
@@ -57,7 +57,7 @@ export const projects: Project[] = [
     slug: 'cursive-connection',
     title: 'cursive connection',
     tags: ['web app', 'exhibition', 'merch design'],
-    description: 'A long-running social app out Devcon 2024 to children — led product design, interaction flows, and frontend react/ts rules system.',
+    description: 'Privacy-preserving social application leveraging advanced cryptography, deployed to 20,000+ participants across Edge City Lanna and Devcon SEA 2024. Directed the design and execution of a Cryptography Museum exhibition and a cryptography-inspired merch collection at Devcon SEA, bridging protocol-level ideas with cultural and physical expression.',
     ctas: [
       { text: 'read recap', url: 'https://x.com/tessla0x0/status/1860267327629197677' }
     ],
@@ -72,7 +72,7 @@ export const projects: Project[] = [
     slug: 'verify-media',
     title: 'verify media',
     tags: ['product design', 'web3'],
-    description: 'Product design lead for a Media tokenized media verification platform at POPs Economics Creative Lab.',
+    description: 'Product design lead for a tokenized media verification platform at FOX blockchain Creative Lab.',
     ctas: [
       { text: 'website', url: 'https://www.verifymedia.com/' }
     ],
@@ -87,7 +87,7 @@ export const projects: Project[] = [
     slug: 'myosin-hivemind',
     title: 'myosin hivemind',
     tags: ['AI', 'design audit', 'ux/ui'],
-    description: 'Conducted AI audit and redesigned AI chatbot flows to improve clarity, usability, and conversational structure.',
+    description: 'Design audit and redesign of AI chatbot flows to improve clarity, usability, and conversational structure.',
     ctas: [
       { text: 'website', url: 'https://myosin.xyz/hivemind' }
     ],
