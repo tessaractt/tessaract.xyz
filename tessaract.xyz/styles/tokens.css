@@ -1,0 +1,124 @@
+/* Design Tokens — Tessaract.xyz
+ * Source: Figma Dev Mode
+ * ------------------------------------- */
+
+:root {
+  /* ============================================
+   * COLORS (from Figma)
+   * ============================================ */
+  
+  /* Primary */
+  --color-royal-blue: #0038C6;
+  --color-black: #000000;
+  --color-nothing-white: #F3F5F8;
+  
+  /* Neutral */
+  --color-gray-text: #646464;
+  --color-gray-light: #D4D4D4;
+  --color-gray-dot: #C0C0C0;
+  
+  /* Semantic */
+  --color-background: var(--color-nothing-white);
+  --color-foreground: var(--color-black);
+  --color-primary: var(--color-royal-blue);
+  --color-muted: var(--color-gray-text);
+  --color-border: var(--color-black);
+  
+  /* Side rail colors */
+  --color-rail-blue-1: #0038C6;
+  --color-rail-blue-2: #1E3A8A;
+  --color-rail-blue-3: #3B82F6;
+  
+  /* ============================================
+   * TYPOGRAPHY (from Figma)
+   * ============================================ */
+  
+  /* Font Families 
+   * --font-display and --font-mono are set via next/font in layout.tsx.
+   * These fallbacks are used only if next/font fails to load. */
+  --font-family-display: 'Krona One', sans-serif;
+  --font-family-mono: 'Kode Mono', monospace;
+  
+  /* Font Sizes */
+  --text-xs: 10px;         /* Nav items, labels */
+  --text-sm: 12px;         /* Small labels */
+  --text-base: 15px;       /* Footer */
+  --text-lg: 16px;         /* Body */
+  --text-xl: 18px;         /* Tags */
+  --text-2xl: 20px;
+  --text-3xl: 25px;
+  --text-4xl: 35px;        /* Headlines */
+  --text-5xl: 40px;
+  
+  /* Letter Spacing */
+  --tracking-tight: -3.5px;   /* Headlines */
+  --tracking-nav: -1px;       /* Nav items */
+  --tracking-normal: 0;
+  
+  /* Font Weights */
+  --font-normal: 400;
+  
+  /* ============================================
+   * SPACING
+   * ============================================ */
+  
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 10px;
+  --space-4: 15px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 30px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 60px;
+  
+  /* Layout-specific */
+  --space-nav-padding-x: 15px;
+  --space-nav-padding-y: 10px;
+  
+  /* ============================================
+   * LAYOUT
+   * ============================================ */
+  
+  /* Frame dimensions (from Figma) */
+  --frame-width: 1280px;
+  --frame-height: 832px;
+  
+  /* Grid */
+  --dot-size: 2px;
+  --dot-gap: 62px;
+  --dot-offset-x: 60px;
+  --dot-offset-y: 0px;
+  
+  /* Side rail */
+  --rail-width: 200px;
+  
+  /* ============================================
+   * BORDERS
+   * ============================================ */
+  
+  --border-width: 0.7px;
+  --border-radius-pill: 20px;
+  --border-radius-sm: 4px;
+  
+  /* ============================================
+   * Z-INDEX
+   * ============================================ */
+  
+  --z-base: 0;
+  --z-content: 10;
+  --z-dot-grid: 20;
+  --z-side-rail: 30;
+  --z-nav: 40;
+  --z-overlay: 50;
+  
+  /* ============================================
+   * TRANSITIONS
+   * ============================================ */
+  
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 400ms;
+  --ease-default: cubic-bezier(0.34, 1.56, 0.64, 1);
+}

@@ -1,0 +1,57 @@
+/* Site Layout Styles (from Figma)
+ * Frame: 1280 x 832
+ * ------------------------------------- */
+
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: var(--color-background);
+}
+
+.main {
+  margin: 0 auto;
+  padding-top: 100px;
+  /* Account for footer at bottom */
+  padding-bottom: 120px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1200px;
+}
+
+/* ============================================
+ * RESPONSIVE
+ * ============================================ */
+
+/* Large screens */
+@media (max-width: 1200px) {
+  .main {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+}
+
+/* Medium screens - side rail collapses */
+@media (max-width: 900px) {
+  .main {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 80px;
+    padding-bottom: 100px;
+    /* More space for bottom social links */
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .main {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 90px;
+    padding-bottom: 110px;
+  }
+}

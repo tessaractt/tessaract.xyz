@@ -1,0 +1,47 @@
+/* Tessaverse Page Styles
+ * Single long-scroll grid layout
+ * ------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding: 120px 40px 100px 40px;
+  /* Space for nav and footer */
+  margin: 0 auto;
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 6rem 3rem;
+}
+
+@media (min-width: 768px) {
+  .projectGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ============================================
+ * RESPONSIVE
+ * ============================================ */
+
+@media (max-width: 900px) {
+  .container {
+    padding: 100px 20px 140px 20px;
+  }
+
+  .projectGrid {
+    gap: 4rem 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 90px 20px 130px 20px;
+  }
+
+  .projectGrid {
+    gap: 3rem 1rem;
+  }
+}

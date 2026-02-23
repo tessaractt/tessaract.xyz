@@ -1,0 +1,332 @@
+/* Contact Page Styles (from Figma)
+ * Each collage element is positioned absolutely for future hover interactions
+ * ------------------------------------- */
+
+.container {
+  width: 100%;
+  min-height: calc(100vh - 160px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--space-8);
+  gap: var(--space-10);
+  position: relative;
+}
+
+/* ============================================
+ * LEFT CONTENT
+ * ============================================ */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  max-width: 302px;
+  padding-top: 80px;
+  flex-shrink: 0;
+}
+
+.heading {
+  font-family: var(--font-display);
+  font-size: 25px;
+  font-weight: var(--font-normal);
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-black);
+}
+
+.types {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: var(--font-normal);
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-black);
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: var(--space-5);
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  font-weight: var(--font-normal);
+  text-transform: uppercase;
+  color: var(--color-black);
+}
+
+.email {
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  font-weight: var(--font-normal);
+  color: var(--color-royal-blue);
+  transition: opacity var(--duration-base) var(--ease-default);
+}
+
+.email:hover {
+  opacity: 0.7;
+}
+
+/* ============================================
+ * COLLAGE CONTAINER
+ * ============================================ */
+
+.collage {
+  position: relative;
+  width: 570px;
+  height: 615px;
+  flex-shrink: 0;
+}
+
+/* ============================================
+ * COLLAGE ELEMENTS - Each positioned for hover interactions
+ * Positions based on Figma mockup measurements
+ * ============================================ */
+
+/* 1. Sky Cube (top-left of collage, behind edge city tee) */
+.skyCube {
+  position: absolute;
+  top: 0;
+  left: 80px;
+  width: 200px;
+  height: 191px;
+  z-index: 0;
+  cursor: pointer;
+  transition: transform var(--duration-base) var(--ease-default);
+}
+
+.skyCubeImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 2. Edge City Tee (main center element) */
+.edgeCityTee {
+  position: absolute;
+  top: 6px;
+  left: 109px;
+  width: 354px;
+  height: 558px;
+  z-index: 1;
+  cursor: pointer;
+  transition: transform var(--duration-base) var(--ease-default);
+}
+
+.edgeCityImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 3. Cursive Connection App (phone - right side) */
+.cursiveApp {
+  position: absolute;
+  top: 100px;
+  right: 0;
+  width: 179px;
+  height: 350px;
+  z-index: 4;
+  cursor: pointer;
+  transition: transform var(--duration-base) var(--ease-default);
+}
+
+.cursiveAppImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 4. Cursive Connection Panel (bottom-left, overlapping edge city tee) */
+.cursivePanel {
+  position: absolute;
+  bottom: 0;
+  left: -30px;
+  width: 303px;
+  height: 197px;
+  z-index: 2;
+  cursor: pointer;
+  transition: transform var(--duration-base) var(--ease-default);
+}
+
+.cursivePanelImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* 5. Motus Pet Mascot (bottom-right) */
+.motusPet {
+  position: absolute;
+  bottom: 30px;
+  right: 60px;
+  width: 167px;
+  height: 112px;
+  z-index: 5;
+  cursor: pointer;
+  transition: transform var(--duration-base) var(--ease-default);
+}
+
+.motusPetImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ============================================
+ * RESPONSIVE
+ * ============================================ */
+
+@media (max-width: 1200px) {
+  .collage {
+    width: 480px;
+    height: 520px;
+  }
+  
+  .skyCube {
+    left: 60px;
+    width: 170px;
+    height: 162px;
+  }
+  
+  .edgeCityTee {
+    left: 85px;
+    width: 300px;
+    height: 472px;
+  }
+  
+  .cursiveApp {
+    top: 85px;
+    width: 152px;
+    height: 297px;
+  }
+  
+  .cursivePanel {
+    width: 257px;
+    height: 167px;
+  }
+  
+  .motusPet {
+    width: 142px;
+    height: 95px;
+  }
+}
+
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-bottom: 130px; /* Space for social icons + footer */
+  }
+  
+  .content {
+    padding-top: 60px;
+    max-width: 100%;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .collage {
+    width: 100%;
+    max-width: 420px;
+    height: 460px;
+    align-self: center;
+  }
+  
+  .skyCube {
+    left: 50px;
+    width: 150px;
+    height: 143px;
+  }
+  
+  .edgeCityTee {
+    left: 70px;
+    width: 265px;
+    height: 417px;
+  }
+  
+  .cursiveApp {
+    top: 75px;
+    width: 134px;
+    height: 262px;
+  }
+  
+  .cursivePanel {
+    width: 227px;
+    height: 147px;
+  }
+  
+  .motusPet {
+    right: 40px;
+    width: 125px;
+    height: 84px;
+  }
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: var(--space-4);
+    padding-top: 60px;
+    padding-bottom: 140px;
+  }
+  
+  .content {
+    gap: var(--space-5);
+    padding-top: 20px;
+  }
+  
+  .heading {
+    font-size: 18px;
+  }
+  
+  .types {
+    font-size: 26px;
+    letter-spacing: -2px;
+  }
+  
+  .label,
+  .email {
+    font-size: 12px;
+  }
+  
+  .collage {
+    max-width: 320px;
+    height: 370px;
+  }
+  
+  .skyCube {
+    left: 30px;
+    width: 120px;
+    height: 115px;
+  }
+  
+  .edgeCityTee {
+    left: 50px;
+    width: 212px;
+    height: 334px;
+  }
+  
+  .cursiveApp {
+    top: 60px;
+    width: 107px;
+    height: 210px;
+  }
+  
+  .cursivePanel {
+    width: 182px;
+    height: 118px;
+  }
+  
+  .motusPet {
+    right: 25px;
+    bottom: 20px;
+    width: 100px;
+    height: 67px;
+  }
+}

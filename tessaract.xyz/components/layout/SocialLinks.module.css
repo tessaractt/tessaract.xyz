@@ -1,0 +1,142 @@
+/* SocialLinks.module.css
+ * Social media links - fixed top right on desktop, bottom center on mobile
+ * ------------------------------------- */
+
+.container {
+  position: fixed;
+  right: 18px;
+  top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: var(--z-content);
+}
+
+.link {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  transition: opacity var(--duration-base) var(--ease-default);
+}
+
+.link:hover {
+  opacity: 0.7;
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+  border: var(--border-width) solid var(--color-black);
+  background-color: var(--color-background);
+}
+
+.icon {
+  width: auto;
+  height: auto;
+  max-width: 50px;
+  max-height: 44px;
+  object-fit: contain;
+}
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: var(--font-normal);
+  text-transform: uppercase;
+  color: var(--color-black);
+  text-align: right;
+}
+
+/* ============================================
+ * RESPONSIVE
+ * ============================================ */
+
+/* Medium screens: smaller icons, stay top right */
+@media (max-width: 1200px) {
+  .container {
+    right: 12px;
+  }
+  
+  .iconBox {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .icon {
+    max-width: 35px;
+    max-height: 32px;
+  }
+  
+  .label {
+    font-size: 8px;
+  }
+}
+
+/* Tablet/Mobile: move to bottom center, horizontal layout */
+@media (max-width: 900px) {
+  .container {
+    position: fixed;
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: 50px; /* Above the footer */
+    transform: translateX(-50%);
+    flex-direction: row;
+    gap: 20px;
+    /* Match the width of header menu buttons */
+    justify-content: center;
+  }
+  
+  .link {
+    align-items: center;
+  }
+  
+  .iconBox {
+    width: 70px;
+    height: 70px;
+    background-color: transparent; /* Transparent on mobile per Figma */
+  }
+  
+  .icon {
+    max-width: 36px;
+    max-height: 32px;
+  }
+  
+  .label {
+    display: block;
+    text-align: center;
+    font-size: 9px;
+    margin-top: 6px;
+    font-weight: var(--font-normal);
+    letter-spacing: 0;
+  }
+}
+
+/* Mobile: match header menu width exactly */
+@media (max-width: 600px) {
+  .container {
+    bottom: 38px;
+    gap: 12px;
+    /* Total width should match header: ~215px (3 buttons + gaps) */
+  }
+  
+  .iconBox {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .icon {
+    max-width: 30px;
+    max-height: 26px;
+  }
+  
+  .label {
+    font-size: 8px;
+    margin-top: 4px;
+    text-transform: uppercase;
+  }
+}

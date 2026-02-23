@@ -1,0 +1,90 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-bottom: 4rem;
+}
+
+.fullSpan {
+  grid-column: span 2;
+}
+
+.halfSpan {
+  grid-column: span 1;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 65ch;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  color: var(--color-royal-blue);
+  text-transform: uppercase;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.description {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--color-royal-blue);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.ctas {
+  display: flex;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.25rem;
+  border: 1px solid var(--color-royal-blue);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-royal-blue);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: lowercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.ctaButton:hover {
+  background: var(--color-royal-blue);
+  color: white;
+}
+
+.mediaContainer {
+  width: 100%;
+  border-radius: 8px;
+  /* Optional slight rounding or matching mockup */
+  margin-top: 1rem;
+}
+
+.mediaWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background: var(--bg-secondary, #f5f5f5);
+}
+
+.mediaItem {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}

@@ -1,0 +1,81 @@
+/* Footer.module.css
+ * Bottom attribution styles (from Figma)
+ * Fixed position on desktop (bottom right), centered on mobile
+ * ------------------------------------- */
+
+.footer {
+  position: fixed;
+  bottom: 12px;
+  right: 18px;
+  z-index: var(--z-content);
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 10px;
+  background-color: var(--color-black);
+  border: var(--border-width) solid var(--color-black);
+}
+
+.triangle {
+  width: 12px;
+  height: 9px;
+  color: var(--color-nothing-white);
+  flex-shrink: 0;
+}
+
+.text {
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  font-weight: var(--font-normal);
+  color: var(--color-nothing-white);
+  white-space: nowrap;
+}
+
+/* ============================================
+ * RESPONSIVE - center on mobile, match header menu width
+ * ============================================ */
+
+@media (max-width: 900px) {
+  .footer {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+  }
+  
+  .content {
+    /* Match width of the 3 social buttons / header menu */
+    min-width: 230px;
+    justify-content: center;
+  }
+  
+  .text {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer {
+    bottom: 6px;
+  }
+  
+  .content {
+    padding: 5px 10px;
+    gap: 6px;
+    /* Match the total width of 3 social icon boxes + gaps: 60*3 + 12*2 = 204px */
+    min-width: 204px;
+    justify-content: center;
+  }
+  
+  .triangle {
+    width: 8px;
+    height: 6px;
+  }
+  
+  .text {
+    font-size: 8px;
+  }
+}

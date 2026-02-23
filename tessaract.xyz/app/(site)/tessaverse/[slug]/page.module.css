@@ -1,0 +1,169 @@
+/* Project Detail Page Styles (from Figma)
+ * ------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: var(--content-max-width);
+  padding: var(--space-8);
+}
+
+.backLink {
+  display: inline-block;
+  margin-bottom: var(--space-8);
+  font-size: var(--text-sm);
+  font-weight: var(--font-normal);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-muted);
+  transition: color var(--duration-base) var(--ease-default);
+}
+
+.backLink:hover {
+  color: var(--color-foreground);
+  opacity: 1;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+/* Hero image placeholder */
+.heroImage {
+  width: 100%;
+  aspect-ratio: 350 / 197;
+  background-color: var(--color-gray-light);
+  border-radius: 8px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Title: Krona One, uppercase */
+.title {
+  font-family: var(--font-display);
+  font-size: var(--text-5xl);
+  font-weight: var(--font-normal);
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-black);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+/* Tags: IBM Plex Mono */
+.tag {
+  font-family: var(--font-mono);
+  font-size: var(--text-lg);
+  font-weight: var(--font-normal);
+  color: var(--color-black);
+  text-transform: lowercase;
+}
+
+/* Body content: IBM Plex Mono, italic for description */
+.content {
+  margin-top: var(--space-4);
+}
+
+.description {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: var(--font-normal);
+  line-height: 1.5;
+  color: var(--color-black);
+}
+
+.description em,
+.description i {
+  font-style: italic;
+}
+
+.placeholder {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+/* Additional images */
+.additionalImages {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.additionalImage {
+  width: 100%;
+  aspect-ratio: 350 / 228;
+  background-color: var(--color-gray-light);
+  border-radius: 8px;
+}
+
+/* ============================================
+ * RESPONSIVE
+ * ============================================ */
+
+@media (max-width: 900px) {
+  .container {
+    padding: 20px;
+    padding-top: 70px;
+    /* Space below fixed nav */
+    padding-bottom: 140px;
+    /* Space for social icons + footer */
+  }
+
+  .project {
+    gap: var(--space-4);
+  }
+
+  /* From Figma mobile: title height 38px */
+  .title {
+    font-size: 28px;
+    letter-spacing: -2px;
+  }
+
+  /* From Figma mobile: tags height 16px */
+  .tag {
+    font-size: 14px;
+  }
+
+  /* From Figma mobile: body text in description area */
+  .description,
+  .placeholder {
+    font-size: 13px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+    padding-top: 60px;
+    padding-bottom: 130px;
+  }
+
+  /* From Figma mobile spec */
+  .title {
+    font-size: 24px;
+    letter-spacing: -1.5px;
+  }
+
+  .tag {
+    font-size: 12px;
+  }
+
+  .description,
+  .placeholder {
+    font-size: 12px;
+    line-height: 1.5;
+  }
+}

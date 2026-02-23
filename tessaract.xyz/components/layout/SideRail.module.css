@@ -1,0 +1,167 @@
+/* SideRail.module.css
+ * Left side information panel (from Figma)
+ * ------------------------------------- */
+
+.rail {
+  position: fixed;
+  left: 12px;
+  top: 12px;
+  width: var(--rail-width);
+  height: calc(100vh - 24px);
+  z-index: var(--z-side-rail);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background);
+  border: var(--border-width) solid var(--color-black);
+}
+
+.header {
+  padding: 5px;
+  border-bottom: var(--border-width) solid var(--color-black);
+}
+
+.title {
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  font-weight: var(--font-normal);
+  text-transform: uppercase;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.infoLine {
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  font-weight: var(--font-normal);
+  text-transform: uppercase;
+}
+
+.divider {
+  width: 100%;
+  border-bottom: 1px dashed var(--color-black);
+  margin: var(--space-3) 0;
+}
+
+.yearRange {
+  display: flex;
+  align-items: center;
+  gap: var(--space-10);
+  padding: var(--space-3) var(--space-5);
+}
+
+.arrow {
+  color: var(--color-black);
+}
+
+.years {
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  font-weight: var(--font-normal);
+  text-transform: uppercase;
+}
+
+.colorBars {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-top: auto;
+  padding: var(--space-3);
+}
+
+.colorBar {
+  width: 20px;
+  height: 40px;
+  border: var(--border-width) solid var(--color-black);
+}
+
+.branding {
+  position: absolute;
+  left: 5px;
+  bottom: 80px;
+  transform-origin: left bottom;
+  transform: rotate(-90deg);
+}
+
+.brandingText {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: var(--font-normal);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+.values {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-2);
+  position: absolute;
+  bottom: 12px;
+  left: 5px;
+}
+
+.valueItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  align-items: flex-start;
+}
+
+.valueDots {
+  display: flex;
+  gap: 3px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-black);
+  border-radius: 50%;
+}
+
+.valueLabel {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: var(--font-normal);
+  text-transform: uppercase;
+  color: var(--color-black);
+}
+
+.valueLabelBlue {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  font-weight: var(--font-normal);
+  text-transform: uppercase;
+  color: var(--color-royal-blue);
+}
+
+.bottomArrows {
+  position: absolute;
+  bottom: 18px;
+  left: calc(var(--rail-width) + 30px);
+  display: flex;
+  gap: 10px;
+  color: var(--color-black);
+}
+
+.arrowSpacer {
+  width: 200px;
+}
+
+/* ============================================
+ * RESPONSIVE - hide on smaller screens
+ * ============================================ */
+
+@media (max-width: 900px) {
+  .rail {
+    display: none;
+  }
+  
+  .bottomArrows {
+    display: none;
+  }
+}

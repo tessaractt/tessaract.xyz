@@ -1,0 +1,24 @@
+/* GridOverlay.module.css
+ * Fixed dot grid overlay - CSS implementation
+ * Per Figma: 2x2px dots, 62px spacing
+ * ------------------------------------- */
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-dot-grid);
+  pointer-events: none;
+  
+  /* Dot grid pattern using radial gradient */
+  background-image: radial-gradient(
+    circle at center,
+    var(--color-gray-dot) 1px,
+    transparent 1px
+  );
+  
+  /* Grid spacing: 62px gap between dots */
+  background-size: var(--dot-gap) var(--dot-gap);
+  
+  /* Offset: starts at x:60 */
+  background-position: var(--dot-offset-x) var(--dot-offset-y);
+}
