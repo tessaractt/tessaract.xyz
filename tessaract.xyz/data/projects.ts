@@ -92,7 +92,7 @@ export const projects: Project[] = [
       { text: 'website', url: 'https://myosin.xyz/hivemind' }
     ],
     media: [
-      { src: '/images/tessaverse/myosin/VERIFY Logo Proposal_5.png', alt: 'Myosin Hivemind' } // Reusing the asset specified
+      { src: '/images/tessaverse/myosin/myosin_banner_cropped.png', alt: 'Myosin Hivemind' } // Reusing the asset specified
     ],
     colSpan: 1,
     featured: true,

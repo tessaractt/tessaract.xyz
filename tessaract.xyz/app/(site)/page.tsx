@@ -49,7 +49,7 @@ export default function AboutPage() {
 
         {/* Services text in blue */}
         <p className={styles.services}>
-          <span>MINI APP, UX/UI, MERCH DESIGN,</span>
+          <span>DESIGN, MINI APP, UX/UI, FASHION, DIGITAL AND</span>
           <span>PHYSICAL EXPERIENCES</span>
         </p>
       </div>
