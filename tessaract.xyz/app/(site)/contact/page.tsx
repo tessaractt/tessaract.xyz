@@ -20,7 +20,7 @@ function SkyCube() {
   return (
     <div className={styles.skyCube}>
       <Image
-        src="/images/contact/sky cube.png"
+        src="/images/contact/sky cube3x.png"
         alt="Sky with clouds and cube"
         width={200}
         height={191}
@@ -34,7 +34,7 @@ function EdgeCityTee() {
   return (
     <div className={styles.edgeCityTee}>
       <Image
-        src="/images/contact/edge city tee.png"
+        src="/images/contact/edge city tee3x.png"
         alt="Person wearing Edge City t-shirt"
         width={354}
         height={558}
@@ -49,7 +49,7 @@ function CursiveConnectionApp() {
   return (
     <div className={styles.cursiveApp}>
       <Image
-        src="/images/contact/cursive connection app.png"
+        src="/images/contact/cursive connection app3x.png"
         alt="Cursive Connection app on phone"
         width={179}
         height={350}
@@ -63,7 +63,7 @@ function CursiveConnection() {
   return (
     <div className={styles.cursivePanel}>
       <Image
-        src="/images/contact/cursive connection.png"
+        src="/images/contact/cursive connection3x.png"
         alt="Cursive Connection artwork"
         width={303}
         height={197}
@@ -77,7 +77,7 @@ function MotusPet() {
   return (
     <div className={styles.motusPet}>
       <Image
-        src="/images/contact/MOTUS PET.png"
+        src="/images/contact/MOTUS PET3x.png"
         alt="Motus pet mascot"
         width={167}
         height={112}
@@ -95,16 +95,16 @@ export default function ContactPage() {
         <h1 className={styles.heading}>
           LET&apos;S TALK:
         </h1>
-        
+
         <p className={styles.types}>
           COLLABORATION<br />
           FREELANCE<br />
           PARTNERSHIP
         </p>
-        
+
         <div className={styles.contactInfo}>
           <span className={styles.label}>(CONTACT)</span>
-          <a 
+          <a
             href={`mailto:${contactEmail}`}
             className={styles.email}
           >
@@ -112,7 +112,7 @@ export default function ContactPage() {
           </a>
         </div>
       </div>
-      
+
       {/* Right side: Image collage - each element is a separate component */}
       <div className={styles.collage}>
         <SkyCube />

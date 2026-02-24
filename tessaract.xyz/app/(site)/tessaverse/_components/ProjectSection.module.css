@@ -13,6 +13,15 @@
   grid-column: span 1;
 }
 
+/* Ensure mobile devices don't force implicit 2-column layouts */
+@media (max-width: 767px) {
+
+  .fullSpan,
+  .halfSpan {
+    grid-column: 1 / -1;
+  }
+}
+
 .header {
   display: flex;
   flex-direction: column;

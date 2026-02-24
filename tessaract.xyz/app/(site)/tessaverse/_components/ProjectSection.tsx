@@ -37,8 +37,8 @@ export function ProjectSection({ project }: ProjectSectionProps) {
                         <Image
                             src={project.media[0].src}
                             alt={project.media[0].alt}
-                            width={0}
-                            height={0}
+                            width={project.media[0].width || 1200}
+                            height={project.media[0].height || 630}
                             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 100vw, 100vw"
                             className={styles.mediaItem}
                             priority={project.colSpan === 2}

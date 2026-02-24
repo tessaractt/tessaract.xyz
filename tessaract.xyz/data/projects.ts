@@ -18,6 +18,8 @@ export interface Project {
   media?: {
     src: string;
     alt: string;
+    width?: number;
+    height?: number;
   }[];
   colSpan?: 1 | 2; // For grid layout
   featured?: boolean;
@@ -32,10 +34,11 @@ export const projects: Project[] = [
     description: 'A narrative-driven mindfulness product built end-to-end: from brand system and world-building to app architecture and live deployment. Launched as Innermost on World',
     ctas: [
       { text: 'website', url: 'https://www.innermost.life' },
-      { text: 'download innermost', url: 'https://world.org/ecosystem/app_7e60435ce14a92c8fe155fa02c07b2f1' }
+      { text: 'download innermost', url: 'https://world.org/ecosystem/app_7e60435ce14a92c8fe155fa02c07b2f1' },
+      { text: 'video', url: 'https://x.com/FWBtweets/status/2016611604150858042?s=20' }
     ],
     media: [
-      { src: '/images/tessaverse/innermost/innermostbannernew.png', alt: 'Innermost App UI' }
+      { src: '/images/tessaverse/innermost/innermostbannernew3.png', alt: 'Innermost App UI', width: 2228, height: 1254 }
     ],
     colSpan: 2,
     featured: true,
@@ -47,7 +50,7 @@ export const projects: Project[] = [
     tags: ['merch design', 'branding'],
     description: 'A community-driven merchandise line and Shopify storefront designed to translate a digital frontier network into physical identity.',
     media: [
-      { src: '/images/tessaverse/edge-city-goods/egde-city-goods-banner.png', alt: 'Edge City Goods Merch' }
+      { src: '/images/tessaverse/edge-city-goods/egde-city-goods-banner3.png', alt: 'Edge City Goods Merch', width: 1114, height: 559 }
     ],
     colSpan: 2,
     featured: true,
@@ -62,7 +65,7 @@ export const projects: Project[] = [
       { text: 'read recap', url: 'https://x.com/tessla0x0/status/1860267327629197677' }
     ],
     media: [
-      { src: '/images/tessaverse/cursive-connection/cursive connection banner.png', alt: 'Cursive Connection App' }
+      { src: '/images/tessaverse/cursive-connection/cursive connection banner3.png', alt: 'Cursive Connection App', width: 1114, height: 860 }
     ],
     colSpan: 2,
     featured: true,
@@ -77,7 +80,7 @@ export const projects: Project[] = [
       { text: 'website', url: 'https://www.verifymedia.com/' }
     ],
     media: [
-      { src: '/images/tessaverse/verify/VERIFY Logo Proposal_5.png', alt: 'Verify Media' }
+      { src: '/images/tessaverse/verify/VERIFY Logo Proposal_6.png', alt: 'Verify Media', width: 1590, height: 1311 }
     ],
     colSpan: 1,
     featured: true,
@@ -92,7 +95,7 @@ export const projects: Project[] = [
       { text: 'website', url: 'https://myosin.xyz/hivemind' }
     ],
     media: [
-      { src: '/images/tessaverse/myosin/myosin_banner_cropped.png', alt: 'Myosin Hivemind' } // Reusing the asset specified
+      { src: '/images/tessaverse/myosin/hivemindbanner1.png', alt: 'Myosin Hivemind', width: 1590, height: 1311 } // Reusing the asset specified
     ],
     colSpan: 1,
     featured: true,
@@ -107,7 +110,7 @@ export const projects: Project[] = [
       { text: 'website', url: 'https://www.breathing.ai/' }
     ],
     media: [
-      { src: '/images/tessaverse/breathingai/breathing.ai.png', alt: 'Breathing AI' }
+      { src: '/images/tessaverse/breathingai/breathing.ai2.png', alt: 'Breathing AI', width: 1114, height: 559 }
     ],
     colSpan: 2,
     featured: true,
