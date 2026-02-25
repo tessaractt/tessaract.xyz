@@ -19,7 +19,7 @@ interface ScrambleTextProps {
 export function ScrambleText({ text, delay = 0, duration = 1.5, className = '' }: ScrambleTextProps) {
     const [displayText, setDisplayText] = useState('');
     const [hasStarted, setHasStarted] = useState(false);
-    const requestRef = useRef<number>();
+    const requestRef = useRef<number | null>(null);
     const startTimeRef = useRef<number | null>(null);
 
     useEffect(() => {
@@ -74,7 +74,7 @@ export function ScrambleText({ text, delay = 0, duration = 1.5, className = '' }
 
         return () => {
             clearTimeout(timeoutId);
-            if (requestRef.current) {
+            if (requestRef.current !== null) {
                 cancelAnimationFrame(requestRef.current);
             }
         };
