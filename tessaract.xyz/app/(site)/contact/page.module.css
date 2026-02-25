@@ -92,11 +92,11 @@
 /* 1. Sky Cube (top-left of collage, behind edge city tee) */
 .skyCube {
   position: absolute;
-  top: 0;
-  left: 80px;
+  top: -20px;
+  left: -40px;
   width: 200px;
   height: 191px;
-  z-index: 0;
+  z-index: 1;
   cursor: pointer;
   transition: transform var(--duration-base) var(--ease-default);
 }
@@ -114,7 +114,7 @@
   left: 109px;
   width: 354px;
   height: 558px;
-  z-index: 1;
+  z-index: 4;
   cursor: pointer;
   transition: transform var(--duration-base) var(--ease-default);
 }
@@ -129,10 +129,10 @@
 .cursiveApp {
   position: absolute;
   top: 100px;
-  right: 0;
+  right: -20;
   width: 179px;
   height: 350px;
-  z-index: 4;
+  z-index: 2;
   cursor: pointer;
   transition: transform var(--duration-base) var(--ease-default);
 }
@@ -150,7 +150,7 @@
   left: -30px;
   width: 303px;
   height: 197px;
-  z-index: 2;
+  z-index: 5;
   cursor: pointer;
   transition: transform var(--duration-base) var(--ease-default);
 }
@@ -164,7 +164,7 @@
 /* 5. Motus Pet Mascot (bottom-right) */
 .motusPet {
   position: absolute;
-  bottom: 30px;
+  bottom: 10px;
   right: 60px;
   width: 167px;
   height: 112px;
@@ -180,6 +180,81 @@
 }
 
 /* ============================================
+ * GSAP INTERACTIVE CLASSES
+ * ============================================ */
+
+/* Generic wrapper for collage assets */
+.collageItemWrapper {
+  position: absolute;
+  cursor: pointer;
+  /* GSAP will animate opacity, grayscale, pointer-events inline */
+}
+
+/* Generic image class replaces the individual ones */
+.collageItemImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Click-outside full-screen overlay */
+.overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 40;
+  /* Just below active asset */
+  background: transparent;
+  cursor: default;
+}
+
+/* Speech Bubble Base Styling */
+.speechBubble {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.12);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--color-black);
+  max-width: 240px;
+  width: max-content;
+  pointer-events: none;
+  z-index: 100;
+  display: none;
+  /* GSAP toggles this to display: flex */
+}
+
+/* Individual Speech Bubble Positions */
+.speechBubble[class*="bubble-skyCube"] {
+  top: -50px;
+  left: -35px;
+}
+
+.speechBubble[class*="bubble-edgeCityTee"] {
+  top: 180px;
+  left: -150px;
+}
+
+.speechBubble[class*="bubble-cursiveConnectionApp"] {
+  top: -90px;
+  left: -60px;
+}
+
+.speechBubble[class*="bubble-cursiveConnection3x"] {
+  bottom: -70px;
+  left: 10px;
+}
+
+.speechBubble[class*="bubble-motusPet"] {
+  top: -100px;
+  right: -40px;
+}
+
+/* ============================================
  * RESPONSIVE
  * ============================================ */
 
@@ -188,30 +263,30 @@
     width: 480px;
     height: 520px;
   }
-  
+
   .skyCube {
     left: 60px;
     width: 170px;
     height: 162px;
   }
-  
+
   .edgeCityTee {
     left: 85px;
     width: 300px;
     height: 472px;
   }
-  
+
   .cursiveApp {
     top: 85px;
     width: 152px;
     height: 297px;
   }
-  
+
   .cursivePanel {
     width: 257px;
     height: 167px;
   }
-  
+
   .motusPet {
     width: 142px;
     height: 95px;
@@ -222,46 +297,47 @@
   .container {
     flex-direction: column;
     align-items: flex-start;
-    padding-bottom: 130px; /* Space for social icons + footer */
+    padding-bottom: 130px;
+    /* Space for social icons + footer */
   }
-  
+
   .content {
     padding-top: 60px;
     max-width: 100%;
     align-items: flex-start;
     text-align: left;
   }
-  
+
   .collage {
     width: 100%;
     max-width: 420px;
     height: 460px;
     align-self: center;
   }
-  
+
   .skyCube {
     left: 50px;
     width: 150px;
     height: 143px;
   }
-  
+
   .edgeCityTee {
     left: 70px;
     width: 265px;
     height: 417px;
   }
-  
+
   .cursiveApp {
     top: 75px;
     width: 134px;
     height: 262px;
   }
-  
+
   .cursivePanel {
     width: 227px;
     height: 147px;
   }
-  
+
   .motusPet {
     right: 40px;
     width: 125px;
@@ -275,58 +351,73 @@
     padding-top: 60px;
     padding-bottom: 140px;
   }
-  
+
   .content {
     gap: var(--space-5);
     padding-top: 20px;
   }
-  
+
   .heading {
     font-size: 18px;
   }
-  
+
   .types {
     font-size: 26px;
     letter-spacing: -2px;
   }
-  
+
   .label,
   .email {
     font-size: 12px;
   }
-  
+
   .collage {
     max-width: 320px;
     height: 370px;
   }
-  
+
   .skyCube {
     left: 30px;
     width: 120px;
     height: 115px;
   }
-  
+
   .edgeCityTee {
     left: 50px;
     width: 212px;
     height: 334px;
   }
-  
+
   .cursiveApp {
     top: 60px;
     width: 107px;
     height: 210px;
   }
-  
+
   .cursivePanel {
     width: 182px;
     height: 118px;
   }
-  
+
   .motusPet {
     right: 25px;
     bottom: 20px;
     width: 100px;
     height: 67px;
+  }
+
+  /* Keep bubbles in bounds for mobile */
+  .speechBubble[class*="bubble-edgeCityTee"] {
+    left: -20px;
+  }
+
+  .speechBubble[class*="bubble-cursiveConnectionApp"] {
+    left: auto;
+    right: -10px;
+  }
+
+  .speechBubble[class*="bubble-cursiveConnectionApp"]::after {
+    left: auto;
+    right: 30px;
   }
 }

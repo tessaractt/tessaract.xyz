@@ -10,6 +10,7 @@
 
 import Image from 'next/image';
 import styles from './page.module.css';
+import { ScrambleText } from './_components/ScrambleText';
 
 export default function AboutPage() {
   return (
@@ -18,8 +19,18 @@ export default function AboutPage() {
       <div className={styles.content}>
         {/* Main headline */}
         <h1 className={styles.headline}>
-          <span className={styles.headlineBlack}>TESSA IS A CREATIVE BASED IN</span>
-          <span className={styles.headlineGray}>LOS ANGELES</span>
+          <ScrambleText
+            text="TESSA IS A CREATIVE BASED IN"
+            className={styles.headlineBlack}
+            delay={0.1}
+            duration={1.5}
+          />
+          <ScrambleText
+            text="LOS ANGELES"
+            className={styles.headlineGray}
+            delay={0.6}
+            duration={1.5}
+          />
         </h1>
 
         {/* Starburst decorations - using Figma asset */}
@@ -49,8 +60,16 @@ export default function AboutPage() {
 
         {/* Services text in blue */}
         <p className={styles.services}>
-          <span>DESIGN, MINI APP, UX/UI, FASHION, DIGITAL AND</span>
-          <span>PHYSICAL EXPERIENCES</span>
+          <ScrambleText
+            text="DESIGN, MINI APP, UX/UI, FASHION, DIGITAL AND"
+            delay={1.1}
+            duration={1.5}
+          />
+          <ScrambleText
+            text="PHYSICAL EXPERIENCES"
+            delay={1.6}
+            duration={1.5}
+          />
         </p>
       </div>
     </div>
