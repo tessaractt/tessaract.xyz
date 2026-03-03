@@ -93,7 +93,7 @@
 .skyCube {
   position: absolute;
   top: -20px;
-  left: -40px;
+  left: 0px;
   width: 200px;
   height: 191px;
   z-index: 1;
