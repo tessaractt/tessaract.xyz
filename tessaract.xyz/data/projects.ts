@@ -49,6 +49,9 @@ export const projects: Project[] = [
     title: 'edge city goods',
     tags: ['merch design', 'branding'],
     description: 'A community-driven merchandise line and Shopify storefront designed to translate a digital frontier network into physical identity.',
+    ctas: [
+      { text: 'see merch in action', url: 'https://x.com/timourxyz/status/1935012109076873280' }
+    ],
     media: [
       { src: '/images/tessaverse/edge-city-goods/egde-city-goods-banner3.png', alt: 'Edge City Goods Merch', width: 1114, height: 559 }
     ],
