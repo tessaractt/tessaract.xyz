@@ -5,10 +5,7 @@
             "args": [
                 "-y",
                 "@modelcontextprotocol/server-figma"
-            ],
-            "env": {
-                "FIGMA_ACCESS_TOKEN": "figd_GvSWX4TsFA8gjdnDnmjzdDZRrZh7nhB54dz5MDuz"
-            }
+            ]
         }
     }
 }
