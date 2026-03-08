@@ -27,18 +27,32 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: 'Tessaract.xyz — Creative Studio',
-  description: 'Personal design and creative studio. Portfolio, signal, and high quality marketing site.',
+  description: 'Design and creative studio. Mini app, UX, UI, fashion, digital and physical experiences.',
+  icons: {
+    icon: '/favicon.png',
+    apple: '/touch-icon.png',
+  },
   metadataBase: new URL('https://tessaract.xyz'),
   openGraph: {
     title: 'Tessaract.xyz — Creative Studio',
-    description: 'Personal design and creative studio.',
+    description: 'Design and creative studio. Mini app, UX, UI, fashion, digital and physical experiences.',
+    url: 'https://tessaract.xyz',
+    siteName: 'Tessaract.xyz',
+    images: [
+      {
+        url: '/social-preview.png',
+        width: 1200,
+        height: 630,
+      },
+    ],
     type: 'website',
     locale: 'en_US',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Tessaract.xyz — Creative Studio',
-    description: 'Personal design and creative studio.',
+    description: 'Design and creative studio. Mini app, UX, UI, fashion, digital and physical experiences.',
+    images: ['/social-preview.png'],
   },
   robots: {
     index: true,
