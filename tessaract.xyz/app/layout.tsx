@@ -29,8 +29,8 @@ export const metadata: Metadata = {
   title: 'Tessaract.xyz — Creative Studio',
   description: 'Design and creative studio. Mini app, UX, UI, fashion, digital and physical experiences.',
   icons: {
-    icon: '/favicon.png',
-    apple: '/touch-icon.png',
+    icon: '/favicon.png?v=2',
+    apple: '/touch-icon.png?v=2',
   },
   metadataBase: new URL('https://tessaract.xyz'),
   openGraph: {
