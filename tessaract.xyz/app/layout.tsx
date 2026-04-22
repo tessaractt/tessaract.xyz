@@ -7,6 +7,7 @@
 
 import type { Metadata } from 'next';
 import { Krona_One, IBM_Plex_Mono } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 
 // Load Krona One font (display headings)
@@ -69,6 +70,18 @@ export default function RootLayout({
     <html lang="en" className={`${kronaOne.variable} ${ibmPlexMono.variable}`}>
       <body>
         {children}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}');
+          `}
+        </Script>
       </body>
     </html>
   );
