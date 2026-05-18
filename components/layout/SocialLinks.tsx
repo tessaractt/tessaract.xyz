@@ -29,6 +29,11 @@ const socialLinks: SocialLink[] = [
     href: 'https://github.com/tessaractt',
     icon: '/images/icons/github.svg',
   },
+  {
+    name: 'LINKEDIN',
+    href: 'https://www.linkedin.com/in/tessaman/',
+    icon: '/images/icons/linkedin.svg',
+  },
 ];
 
 export function SocialLinks() {
