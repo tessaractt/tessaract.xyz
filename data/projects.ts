@@ -50,6 +50,7 @@ export const projects: Project[] = [
     tags: ['merch design', 'branding'],
     description: 'A community-driven merchandise line and Shopify storefront designed to translate a digital frontier network into physical identity.',
     ctas: [
+      { text: 'website', url: 'https://goods.edgecity.live/' },
       { text: 'see merch in action', url: 'https://x.com/timourxyz/status/1935012109076873280' }
     ],
     media: [
