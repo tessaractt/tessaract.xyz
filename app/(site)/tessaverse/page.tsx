@@ -1,21 +1,15 @@
+'use client';
+
 /**
- * Tessaverse Page — Portfolio List
- * 
- * Single long-scroll portfolio page featuring projects in a grid layout.
+ * Tessaverse route — redirects to the tessaverse section on the home page.
+ * Content now lives at /#tessaverse on the single scrollable page.
  */
 
-import { projects } from '@/data/projects';
-import { ProjectSection } from './_components/ProjectSection';
-import styles from './page.module.css';
+import { useEffect } from 'react';
 
 export default function TessaversePage() {
-  return (
-    <div className={styles.container}>
-      <div className={styles.projectGrid}>
-        {projects.map((project) => (
-          <ProjectSection key={project.id} project={project} />
-        ))}
-      </div>
-    </div>
-  );
+  useEffect(() => {
+    window.location.replace('/#tessaverse');
+  }, []);
+  return null;
 }

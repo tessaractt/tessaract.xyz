@@ -1,53 +1,68 @@
 /**
- * Nav — Primary navigation
- * 
- * Per Figma:
- * - Centered horizontally at top
- * - Three items: ABOUT, TESSAVERSE, CONTACT
- * - Active: blue fill (#0038C6), white text, rounded-[20px]
- * - Inactive: black border, black text, rounded-[20px]
- * - Font: Krona One, 10px, tracking -1px
+ * Nav — Primary navigation with scroll spy
+ *
+ * Buttons highlight automatically as the user scrolls between sections.
+ * Clicking a button smooth-scrolls to that section.
  */
 
 'use client';
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 import styles from './Nav.module.css';
 
-interface NavItem {
-  label: string;
-  href: string;
-}
-
-const navItems: NavItem[] = [
-  { label: 'ABOUT', href: '/' },
-  { label: 'TESSAVERSE', href: '/tessaverse' },
-  { label: 'CONTACT', href: '/contact' },
+const navItems = [
+  { label: 'ABOUT', id: 'about' },
+  { label: 'TESSAVERSE', id: 'tessaverse' },
+  { label: 'CONTACT', id: 'contact' },
 ];
 
 export function Nav() {
-  const pathname = usePathname();
-  
+  const [activeSection, setActiveSection] = useState('about');
+
+  useEffect(() => {
+    const observers: IntersectionObserver[] = [];
+
+    navItems.forEach(({ id }) => {
+      const el = document.getElementById(id);
+      if (!el) return;
+
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setActiveSection(id);
+          }
+        },
+        {
+          // Section becomes active when it enters the middle band of the viewport
+          rootMargin: '-30% 0px -30% 0px',
+          threshold: 0,
+        }
+      );
+
+      observer.observe(el);
+      observers.push(observer);
+    });
+
+    return () => observers.forEach((o) => o.disconnect());
+  }, []);
+
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <nav className={styles.nav} aria-label="Primary navigation">
       <ul className={styles.list}>
-        {navItems.map((item) => {
-          const isActive = pathname === item.href || 
-            (item.href !== '/' && pathname?.startsWith(item.href));
-          
-          return (
-            <li key={item.href}>
-              <Link 
-                href={item.href}
-                className={`${styles.link} ${isActive ? styles.active : ''}`}
-                aria-current={isActive ? 'page' : undefined}
-              >
-                {item.label}
-              </Link>
-            </li>
-          );
-        })}
+        {navItems.map((item) => (
+          <li key={item.id}>
+            <button
+              className={`${styles.link} ${activeSection === item.id ? styles.active : ''}`}
+              onClick={() => scrollToSection(item.id)}
+            >
+              {item.label}
+            </button>
+          </li>
+        ))}
       </ul>
     </nav>
   );

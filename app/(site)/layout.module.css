@@ -12,15 +12,11 @@
 
 .main {
   margin: 0 auto;
-  padding-top: 100px;
-  /* Account for footer at bottom */
-  padding-bottom: 120px;
-  min-height: 100vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  max-width: 1200px;
+  justify-content: flex-start;
 }
 
 /* ============================================

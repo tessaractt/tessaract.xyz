@@ -18,6 +18,8 @@
 .link {
   display: block;
   padding: var(--space-nav-padding-y) var(--space-nav-padding-x);
+  background: none;
+  cursor: pointer;
   font-family: var(--font-display);
   font-size: var(--text-xs);
   font-weight: var(--font-normal);
