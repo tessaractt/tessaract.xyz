@@ -8,6 +8,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import { useRouter } from 'next/navigation';
 import styles from './Nav.module.css';
 
 const navItems = [
@@ -18,6 +19,7 @@ const navItems = [
 
 export function Nav() {
   const [activeSection, setActiveSection] = useState('about');
+  const router = useRouter();
 
   useEffect(() => {
     const observers: IntersectionObserver[] = [];
@@ -47,7 +49,13 @@ export function Nav() {
   }, []);
 
   const scrollToSection = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Section not on this page — navigate home and let the hash land
+      router.push(`/#${id}`);
+    }
   };
 
   return (

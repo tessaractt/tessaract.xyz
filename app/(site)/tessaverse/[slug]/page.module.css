@@ -1,21 +1,41 @@
-/* Project Detail Page Styles (from Figma)
+/* Case Study / Project Detail Page
+ * Follows DESIGN.md — tokens, Krona One display, IBM Plex Mono body
  * ------------------------------------- */
+
+/* ============================================
+ * LAYOUT
+ * ============================================ */
 
 .container {
   width: 100%;
-  max-width: var(--content-max-width);
-  padding: var(--space-8);
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 100px 40px 160px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+
+  /* ── Copy protection ──────────────────────────────────────
+   * Prevents casual text selection and copy-paste.
+   * Note: does not block browser devtools or view-source.
+   * ────────────────────────────────────────────────────── */
+  user-select: none;
+  -webkit-user-select: none;
 }
+
+/* ============================================
+ * BACK LINK
+ * ============================================ */
 
 .backLink {
   display: inline-block;
-  margin-bottom: var(--space-8);
-  font-size: var(--text-sm);
-  font-weight: var(--font-normal);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
   text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
+  letter-spacing: 0.05em;
   color: var(--color-muted);
   transition: color var(--duration-base) var(--ease-default);
+  margin-bottom: calc(-1 * var(--space-10));
 }
 
 .backLink:hover {
@@ -23,89 +43,341 @@
   opacity: 1;
 }
 
-.project {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-6);
-}
-
-/* Hero image placeholder */
-.heroImage {
-  width: 100%;
-  aspect-ratio: 350 / 197;
-  background-color: var(--color-gray-light);
-  border-radius: 8px;
-}
+/* ============================================
+ * HEADER
+ * ============================================ */
 
 .header {
   display: flex;
   flex-direction: column;
   gap: var(--space-3);
+  padding-bottom: var(--space-8);
 }
 
-/* Title: Krona One, uppercase */
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
 .title {
   font-family: var(--font-display);
-  font-size: var(--text-5xl);
+  font-size: var(--text-4xl);
   font-weight: var(--font-normal);
   line-height: 1.1;
   text-transform: uppercase;
   letter-spacing: var(--tracking-tight);
-  color: var(--color-black);
+  color: var(--color-royal-blue);
+}
+
+.subtitle {
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  color: var(--color-muted);
+  text-transform: lowercase;
+}
+
+.meta {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .tags {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-2);
+  margin-top: var(--space-1);
 }
 
-/* Tags: IBM Plex Mono */
 .tag {
   font-family: var(--font-mono);
-  font-size: var(--text-lg);
+  font-size: var(--text-xs);
   font-weight: var(--font-normal);
-  color: var(--color-black);
   text-transform: lowercase;
-}
-
-/* Body content: IBM Plex Mono, italic for description */
-.content {
-  margin-top: var(--space-4);
-}
-
-.description {
-  font-family: var(--font-mono);
-  font-size: 14px;
-  font-weight: var(--font-normal);
-  line-height: 1.5;
   color: var(--color-black);
+  border: var(--border-width) solid var(--color-black);
+  border-radius: var(--border-radius-pill);
+  padding: 4px 10px;
 }
 
-.description em,
-.description i {
-  font-style: italic;
-}
+/* ============================================
+ * SECTIONS
+ * ============================================ */
 
-.placeholder {
-  font-family: var(--font-mono);
-  font-size: 14px;
-  color: var(--color-muted);
-  font-style: italic;
-}
-
-/* Additional images */
-.additionalImages {
+.section {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-5);
 }
 
-.additionalImage {
+/* "the bet —" style label */
+.sectionLabel {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-royal-blue);
+}
+
+.sectionLabelCentered {
+  text-align: center;
+}
+
+/* Body copy */
+.body {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: var(--font-normal);
+  line-height: 1.6;
+  color: var(--color-royal-blue);
+}
+
+/* ============================================
+ * VISUALS
+ * ============================================ */
+
+.visual {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+}
+
+.visualInner {
+  position: relative;
   width: 100%;
-  aspect-ratio: 350 / 228;
-  background-color: var(--color-gray-light);
-  border-radius: 8px;
+  background-color: transparent;
+}
+
+/* ── Image save protection ────────────────────────────────
+ * Transparent overlay covers the image so right-click
+ * targets the div, not the <img>. draggable="false" on
+ * <Image> prevents drag-to-save. Does not block devtools.
+ * ─────────────────────────────────────────────────────── */
+.visualOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  cursor: zoom-in;
+}
+
+/* ============================================
+ * IMAGE MODAL
+ * ============================================ */
+
+.modalBackdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  background-color: rgba(0, 0, 0, 0.88);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+.modalContent {
+  position: relative;
+  cursor: default;
+  /* Prevent context events from bubbling to backdrop */
+}
+
+.visualCaption {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+ * FEATURES
+ * ============================================ */
+
+.features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.featureBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* ============================================
+ * CORE LOOP
+ * ============================================ */
+
+.loopRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0;
+  padding: var(--space-4) var(--space-5);
+  border: var(--border-width) solid var(--color-black);
+}
+
+.loopItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-black);
+  white-space: nowrap;
+}
+
+.loopArrow {
+  color: var(--color-royal-blue);
+  margin: 0 var(--space-3);
+  flex-shrink: 0;
+}
+
+/* ============================================
+ * TABLES
+ * ============================================ */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.th {
+  text-align: left;
+  font-weight: var(--font-normal);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  padding: var(--space-3) var(--space-4);
+  border-bottom: var(--border-width) solid var(--color-gray-light);
+}
+
+.tr {
+  border-bottom: var(--border-width) solid var(--color-gray-light);
+}
+
+.tr:last-child {
+  border-bottom: none;
+}
+
+.td {
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-black);
+  line-height: 1.4;
+}
+
+/* Tech stack table — clear background, black text */
+.tableDark {
+  background-color: transparent;
+}
+
+.thDark {
+  color: var(--color-muted);
+  border-bottom-color: var(--color-gray-light);
+}
+
+.tdDark {
+  color: var(--color-black);
+  border-bottom-color: var(--color-gray-light);
+}
+
+/* ============================================
+ * LIST
+ * ============================================ */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-left: 0;
+}
+
+.listItem {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-black);
+  display: grid;
+  grid-template-columns: 12px 1fr;
+  gap: var(--space-3);
+}
+
+.listItem::before {
+  content: '—';
+  color: var(--color-royal-blue);
+  flex-shrink: 0;
+}
+
+/* ============================================
+ * RULE LIST (scoring system style — dividers only, no dash)
+ * ============================================ */
+
+.ruleList {
+  border-top: var(--border-width) solid var(--color-gray-light);
+}
+
+.ruleRow {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-black);
+  padding: var(--space-3) 0;
+  border-bottom: var(--border-width) solid var(--color-gray-light);
+  text-align: center;
+}
+
+/* ============================================
+ * CTA
+ * ============================================ */
+
+.ctaLink {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--color-royal-blue);
+  transition: opacity var(--duration-base) var(--ease-default);
+  align-self: flex-start;
+}
+
+.ctaLink:hover {
+  opacity: 0.7;
+}
+
+/* Fallback project CTA buttons */
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.ctaButton {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  text-transform: lowercase;
+  color: var(--color-royal-blue);
+  border: var(--border-width) solid var(--color-royal-blue);
+  border-radius: var(--border-radius-pill);
+  padding: var(--space-2) var(--space-5);
+  transition: all var(--duration-base) var(--ease-default);
+}
+
+.ctaButton:hover {
+  background-color: var(--color-royal-blue);
+  color: var(--color-nothing-white);
+  opacity: 1;
 }
 
 /* ============================================
@@ -114,56 +386,43 @@
 
 @media (max-width: 900px) {
   .container {
-    padding: 20px;
-    padding-top: 70px;
-    /* Space below fixed nav */
-    padding-bottom: 140px;
-    /* Space for social icons + footer */
+    padding: 80px 20px 140px 20px;
+    gap: var(--space-12);
   }
 
-  .project {
-    gap: var(--space-4);
-  }
-
-  /* From Figma mobile: title height 38px */
   .title {
     font-size: 28px;
     letter-spacing: -2px;
   }
 
-  /* From Figma mobile: tags height 16px */
-  .tag {
-    font-size: 14px;
+  .loopRow {
+    gap: var(--space-1);
   }
 
-  /* From Figma mobile: body text in description area */
-  .description,
-  .placeholder {
-    font-size: 13px;
-    line-height: 1.6;
+  .loopItem {
+    font-size: 9px;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .container {
-    padding: 20px;
-    padding-top: 60px;
-    padding-bottom: 130px;
+    padding: 70px 16px 130px 16px;
+    gap: var(--space-10);
   }
 
-  /* From Figma mobile spec */
   .title {
-    font-size: 24px;
+    font-size: 22px;
     letter-spacing: -1.5px;
   }
 
-  .tag {
-    font-size: 12px;
+  .loopRow {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  .description,
-  .placeholder {
-    font-size: 12px;
-    line-height: 1.5;
+  .loopArrow {
+    transform: rotate(90deg);
+    margin: 0;
   }
+
 }

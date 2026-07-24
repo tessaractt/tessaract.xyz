@@ -23,6 +23,7 @@ export interface Project {
   }[];
   colSpan?: 1 | 2; // For grid layout
   featured?: boolean;
+  caseStudySlug?: string; // links to /tessaverse/[slug] case study page
 }
 
 export const projects: Project[] = [
@@ -41,6 +42,7 @@ export const projects: Project[] = [
     ],
     colSpan: 2,
     featured: true,
+    caseStudySlug: 'edge-city-goods',
   },
   {
     id: '2',
@@ -58,6 +60,7 @@ export const projects: Project[] = [
     ],
     colSpan: 2,
     featured: true,
+    caseStudySlug: 'innermost',
   },
   {
     id: '3',
