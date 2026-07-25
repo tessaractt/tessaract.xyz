@@ -25,11 +25,11 @@ export interface StackRow {
 }
 
 export type FeatureBlock =
-  | { type: 'text'; label: string; body: string }
+  | { type: 'text'; label: string; body: string; centered?: boolean; noDash?: boolean }
   | { type: 'loop'; label: string; steps: string[] }
   | { type: 'table'; label: string; body?: string; headers: string[]; rows: (string | number)[][] }
-  | { type: 'list'; label: string; body?: string; items: string[] }
-  | { type: 'rule-list'; label: string; body?: string; items: string[] }  // borderless rows, no dash prefix
+  | { type: 'list'; label: string; body?: string; items: string[]; centered?: boolean; noDash?: boolean }
+  | { type: 'rule-list'; label: string; body?: string; items: string[]; centered?: boolean; noDash?: boolean; leftAlign?: boolean }  // borderless rows, no dash prefix
   | { type: 'visual'; label: string; body: string; visual: VisualSlot }
   | { type: 'text+visual'; label: string; body: string; visual: VisualSlot };
 
@@ -175,26 +175,24 @@ Payouts were distributed via Safe multisig: a 2-of-2 treasury requiring both tea
   {
     slug: 'edge-city-goods',
     title: 'Edge City Goods',
-    subtitle: 'building the visual language for a popup archive store',
+    subtitle: 'a design system and AI-native commerce layer for a popup archive store',
     role: 'Design Systems · Brand · UI/UX',
     period: '2024 – 2025',
-    tags: ['e-commerce', 'fashion', 'branding', 'design systems'],
+    tags: ['design systems', 'AI-native', 'e-commerce', 'brand strategy'],
 
     betLabel: 'the brief',
     hideFeaturesLabel: true,
 
     bet: {
-      body: `Edge City Goods is the official merch store for Edge City — a series of popup events for frontier builders, curious minds, and techno-optimists. Each drop represents a specific event. The store is an archive of experiences distilled into objects.
+      body: `A store with no system is a store that can't scale, can't hand off, and can't be touched by AI tools without breaking. Every hour a developer spends guessing your design intent is money wasted. Every AI tool that can't find your store is a sale that went somewhere else.
 
-The store was live and working. The visual identity was strong. But it lived entirely in implicit knowledge — CSS comments, pattern recognition, institutional memory. No documentation. No system. Nothing that could scale to new platforms, new contributors, or AI-assisted development.
-
-The goal: make the implicit explicit. Build a design system that could serve a web store, an iOS app, and a World mini app from a single source of truth.`,
+Edge City Goods had the aesthetic. What it didn't have was a system — or discoverability. We built both.`,
     },
 
     built: {
-      body: `A full design system for Edge City Goods — brand foundation, semantic color tokens, typography rules, glass surface hierarchy, motion patterns, and a 60+ component Figma library. Built to serve web, iOS, and a World mini app from one token file.
+      body: `A complete design system and AI-native commerce layer for goods.edgecity.live. Documented in real-time as we built, not written up after the fact.
 
-The system includes DESIGN.md — a plain-text spec written to be read by AI coding tools. Before it existed, AI-generated UI came back generic. After: on-brand, first pass.`,
+Two deliverables. One goal: a store that any developer can build on, any AI agent can find, and that doesn't depend on you to keep running.`,
       visual: {
         src: '/images/tessaverse/edge-city-goods/egde city goods homepage v2.jpg',
         alt: 'Edge City Goods homepage v2 — full design system applied',
@@ -204,20 +202,31 @@ The system includes DESIGN.md — a plain-text spec written to be read by AI cod
     features: [
       {
         type: 'text',
+        label: 'DESIGN.md — saves time. saves money.',
+        body: `DESIGN.md is a plain-text spec in the repo root written to be read by AI coding tools — Cursor, Claude Code, Copilot. Every token, every surface rule, every Do/Don't.
+
+Before it existed: AI-generated UI came back generic. Default Shopify patterns. Wrong fonts. Raw rgba values. Accent colors used decoratively.
+
+After: AI sessions open with full design context. Right tokens. Right patterns. Right constraints. The gap between "AI-generated" and "on-brand" collapses on the first pass.
+
+This is what turns a design system from documentation into infrastructure. It doesn't just tell humans what to build — it tells the tools.`,
+      },
+      {
+        type: 'text',
         label: 'brand foundation',
         body: `The aesthetic isn't arbitrary. It traces back to a worldview.
 
-Edge City lives at the intersection of Buckminster Fuller's systems thinking, the Whole Earth Catalog's democratized knowledge, and the counterculture conviction that small groups of high-agency people can bend trajectories. The store is a relic-maker. Objects that carry meaning because of what happened around them.
+Edge City lives at the intersection of Buckminster Fuller's systems thinking, the Whole Earth Catalog's democratized knowledge, and the conviction that small groups of high-agency people can bend trajectories. The store is a relic-maker — objects that carry meaning because of what happened around them.
 
 clouds → boundlessness, frontier, altitude above the default
 glass → transparency, nothing hidden, weightless precision
 float → unhurried, dreamy, slightly above everything
-white on sky → restraint, light, doing more with less`,
+white on sky → restraint, doing more with less`,
       },
       {
         type: 'table',
         label: 'color',
-        body: 'Seven semantic tokens. No raw values in components — ever. The most important rule: --color-accent is for interactive elements only. Links, buttons, active states. Never decorative. Any accent-colored element that isn\'t clickable is a violation.',
+        body: 'Seven semantic tokens. No raw values in components — ever. --color-accent is for interactive elements only. Any accent-colored element that isn\'t clickable is a violation.',
         headers: ['Token', 'Use'],
         rows: [
           ['--color-surface', 'Product cards, nav pill, cart panel (glass light)'],
@@ -233,6 +242,8 @@ white on sky → restraint, light, doing more with less`,
       {
         type: 'text',
         label: 'typography',
+        centered: true,
+        noDash: true,
         body: `Two fonts. Strict roles. No overlap.
 
 Instrument Serif italic → navigation and menu labels only. Always italic. The single expressive element in an otherwise minimal system.
@@ -255,6 +266,8 @@ The constraint is the point. When only one element is expressive, it carries mor
       {
         type: 'text',
         label: 'motion',
+        centered: true,
+        noDash: true,
         body: `Two motion patterns define the brand feel.
 
 float — product images drift -12px vertically on a 6s ease-in-out loop. Ambient, unhurried. Every floating element has a staggered delay so nothing moves in unison.
@@ -264,52 +277,58 @@ sibling dim — when one product is hovered, siblings drop to 70% opacity. The h
 Both animations respect prefers-reduced-motion. No exceptions.`,
       },
       {
-        type: 'text',
-        label: 'the AI-native layer',
-        body: `The system includes DESIGN.md — a plain-text file in the repo root written to be read by AI coding tools. Cursor, Claude Code, Copilot. Before this existed, AI-generated UI for the store came back generic: default shopify patterns, wrong fonts, raw rgba values, accent colors used decoratively.
-
-After: AI sessions open with full design context. The right tokens, the right surface patterns, the right constraints. The gap between "AI-generated" and "on-brand" collapses.
-
-This is the novel part of the workflow. The design system isn't just for humans.`,
-      },
-      {
         type: 'rule-list',
         label: 'cross-platform tokens',
-        body: 'One tokens.json file serves three platforms via different translators. Change a token value once. Every platform updates.',
+        centered: true,
+        noDash: true,
+        body: 'One tokens.json file. Three platforms. Change a value once — web store, iOS app, and World mini app all stay in sync.',
         items: [
           'web → CSS custom properties in app.css, consumed by Tailwind',
-          'iOS → BrandTokens.swift — tokens mapped to SwiftUI Color, Material, Font, and Animation. Glass surfaces become native .ultraThinMaterial and .regularMaterial — better performance, better system integration',
+          'iOS → BrandTokens.swift — glass surfaces become native .ultraThinMaterial and .regularMaterial. better performance, better system integration',
           'world mini app → web tokens apply directly (WebView), with documented constraints: no hover states, single column only, safe area awareness',
         ],
       },
       {
         type: 'list',
         label: 'selected components',
+        centered: true,
+        noDash: true,
+        body: '60+ components in Figma, tokens synced via Tokens Studio — no manual re-entry. A few examples:',
         items: [
-          'nav pill — the primary navigation lives in a single pill, fixed top-right. collapsed: cart count + expand button. expanded: all nav links in Instrument Serif italic + close. glass light surface.',
-          'product card — image (1:1), title, price. no explicit card frame. the product floats free against the background. the grid hover pattern (sibling dim) is what makes it interactive.',
-          'cart panel — glass light dropdown, attached to the nav pill. custom scrollbar. line items with product thumbnail, options, quantity, delete. subtotal + checkout button.',
-          'size guide modal — the first production use of glassmorphic-dark. the contrast against the lighter product area creates hierarchy. everything behind it recedes. the overlay reinforces: this is a focused moment.',
+          'nav pill — primary navigation in a single pill, fixed top-right. collapsed: cart count + expand. expanded: all nav links in Instrument Serif italic. glass light surface.',
+          'product card — image (1:1), title, price. no explicit card frame. the product floats free against the background. sibling dim makes the grid interactive.',
+          'cart panel — glass light dropdown attached to the nav pill. custom scrollbar. line items, quantity controls, subtotal, checkout.',
+          'size guide modal — the first production use of glassmorphic-dark. contrast creates hierarchy. everything behind it recedes.',
         ],
       },
       {
         type: 'text',
-        label: 'figma library',
-        body: `60+ components across 10 build layers. Tokens imported via Tokens Studio — color variables, text styles, effect styles all derived from tokens.json. No manual re-entry of values.
+        label: 'the AI-native commerce layer — makes money.',
+        body: `AI-mediated shopping is growing. When someone asks Claude or Perplexity "where do I get Edge City merch?" — you need to be the answer. This layer makes that possible.
 
-Component naming convention: ComponentName / Variant / State
-e.g. Button / Checkout / Hover, Option Selector / Size / Selected`,
+llms.txt + llms-full.txt — the emerging standard for LLM discoverability. Every product, every page, in plain language. Crawled by Claude, Perplexity, and others automatically.
+
+JSON-LD Schema.org markup — structured product data auto-generated from live Shopify data. Every product, including future ones, marked up correctly without touching the code again.
+
+FAQ page built as explicit Q&A — the format chatbots parse most effectively. What is Edge City? What is a network state? What does "tools for human flourishing" mean? Structured for answer engines, not keyword density.
+
+Product metadata strategy — SEO titles, descriptions, and tags written to answer real questions people ask AI, not keyword-stuffed for Google.
+
+The stores legible to agents now are building a moat. This is that work.`,
       },
       {
-        type: 'list',
+        type: 'rule-list',
         label: 'outcome',
-        body: 'The store was already beautiful. The system makes it reproducible, scalable, and ready for whatever Edge City builds next.',
+        leftAlign: true,
+        body: 'A store that any developer can build on, any AI agent can find, and that doesn\'t require you to be the bottleneck.',
         items: [
-          'a living brand document (BRAND.md) that any collaborator can read and understand the why behind every decision',
-          'a developer-facing design spec (DESIGN.md) that AI tools read before writing any UI code',
-          'a platform-agnostic token file that keeps web, iOS, and World mini app in sync',
-          'a complete Figma library build checklist — every component, every variant, every state',
-          'a reusable workflow (INSTRUCTIONS.md) that can reproduce this deliverable set for any new project in a single agent session',
+          'BRAND.md — the living brand document. the why behind every visual decision.',
+          'DESIGN.md — one file any developer or AI coding tool reads before touching the codebase.',
+          'tokens.json — platform-agnostic token file. web, iOS, and World mini app in sync.',
+          'Figma library — 60+ components, every variant, every state.',
+          'llms.txt + JSON-LD — the store is legible to AI agents.',
+          'FAQ page — structured for answer engines.',
+          'INSTRUCTIONS.md — a reusable workflow that reproduces this entire deliverable set for any new client.',
         ],
       },
     ],

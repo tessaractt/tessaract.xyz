@@ -31,7 +31,7 @@ export const projects: Project[] = [
     id: '1',
     slug: 'edge-city-goods',
     title: 'edge city goods',
-    tags: ['e-commerce', 'fashion', 'branding', 'design systems'],
+    tags: ['design systems', 'AI-native', 'e-commerce', 'brand strategy'],
     description: 'Designed the merch collection and built a full Shopify storefront from scratch for Edge City\'s merch line — custom theme, product architecture, and end-to-end brand system. Took it from zero to live for a 1,000+ person network of builders, founders, and researchers.',
     ctas: [
       { text: 'website', url: 'https://goods.edgecity.live/' },

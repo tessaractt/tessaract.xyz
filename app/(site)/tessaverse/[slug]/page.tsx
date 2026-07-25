@@ -63,10 +63,11 @@ function VisualSlot({ src, alt, caption }: { src: string; alt: string; caption?:
 }
 
 function FeatureSection({ block }: { block: FeatureBlock }) {
-  const isCentered = block.type === 'loop' || block.type === 'table';
+  const isCentered = block.type === 'loop' || block.type === 'table' || ('centered' in block && block.centered === true);
+  const isNoDash = block.type === 'loop' || block.type === 'table' || ('noDash' in block && block.noDash === true);
   return (
     <div className={styles.featureBlock}>
-      <SectionLabel noDash={isCentered} centered={isCentered}>{block.label}</SectionLabel>
+      <SectionLabel noDash={isNoDash} centered={isCentered}>{block.label}</SectionLabel>
 
       {block.type === 'loop' && (
         <LoopBlock steps={block.steps} />
@@ -112,7 +113,7 @@ function FeatureSection({ block }: { block: FeatureBlock }) {
           {block.body && <p className={styles.body}>{block.body}</p>}
           <div className={styles.ruleList}>
             {block.items.map((item, i) => (
-              <div key={i} className={styles.ruleRow}>{item}</div>
+              <div key={i} className={[styles.ruleRow, block.leftAlign ? styles.ruleRowLeft : ''].filter(Boolean).join(' ')}>{item}</div>
             ))}
           </div>
         </>
