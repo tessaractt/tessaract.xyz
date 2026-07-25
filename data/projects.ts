@@ -34,8 +34,7 @@ export const projects: Project[] = [
     tags: ['design systems', 'AI-native', 'e-commerce', 'brand strategy'],
     description: 'Designed the merch collection and built a full Shopify storefront from scratch for Edge City\'s merch line — custom theme, product architecture, and end-to-end brand system. Took it from zero to live for a 1,000+ person network of builders, founders, and researchers.',
     ctas: [
-      { text: 'website', url: 'https://goods.edgecity.live/' },
-      { text: 'see merch in action', url: 'https://x.com/timourxyz/status/1935012109076873280' }
+      { text: 'website', url: 'https://goods.edgecity.live/' }
     ],
     media: [
       { src: '/images/tessaverse/edge-city-goods/egde-city-goods-banner.png', alt: 'Edge City Goods Merch', width: 1114, height: 559 }

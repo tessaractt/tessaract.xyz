@@ -19,6 +19,14 @@ export function ProjectSection({ project }: ProjectSectionProps) {
 
                 {(project.ctas && project.ctas.length > 0 || project.caseStudySlug) && (
                     <div className={styles.ctas}>
+                        {project.caseStudySlug && (
+                            <Link
+                                href={`/tessaverse/${project.caseStudySlug}`}
+                                className={styles.ctaButton}
+                            >
+                                case study
+                            </Link>
+                        )}
                         {project.ctas?.map((cta, i) => (
                             <a
                                 key={i}
@@ -30,14 +38,6 @@ export function ProjectSection({ project }: ProjectSectionProps) {
                                 {cta.text}
                             </a>
                         ))}
-                        {project.caseStudySlug && (
-                            <Link
-                                href={`/tessaverse/${project.caseStudySlug}`}
-                                className={styles.ctaButton}
-                            >
-                                case study
-                            </Link>
-                        )}
                     </div>
                 )}
             </div>
