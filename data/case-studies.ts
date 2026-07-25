@@ -59,7 +59,10 @@ export interface CaseStudy {
 
   stack?: StackRow[];      // omit or leave empty to hide the tech stack section
 
-  substackUrl?: string;    // Full URL once live. Leave undefined to hide the CTA.
+  fullStory?: {
+    body: string;
+    substackUrl?: string;  // set when live to show the CTA link
+  };
 }
 
 // ─── Data ─────────────────────────────────────────────────
@@ -71,7 +74,7 @@ export const caseStudies: CaseStudy[] = [
     subtitle: 'a mindfulness mini app',
     role: 'Product Design Lead',
     period: 'November 2025 – April 2026',
-    tags: ['mini app', 'wellness', 'world app platform'],
+    tags: ['mini app', 'world app', 'creative direction', '0→1'],
 
     bet: {
       body: `Wellness apps solved for access, but the real problem was commitment.
@@ -164,7 +167,10 @@ Payouts were distributed via Safe multisig: a 2-of-2 treasury requiring both tea
       { layer: 'Deployment', technology: 'Vercel' },
     ],
 
-    substackUrl: undefined, // replace with full URL once live
+    fullStory: {
+      body: `The complete build story — the staking pivot, PostHog data, what failed and why, and what I'd do differently — is on Substack. (coming soon)`,
+      substackUrl: undefined, // replace with full URL once live
+    },
   },
   {
     slug: 'edge-city-goods',
@@ -172,7 +178,7 @@ Payouts were distributed via Safe multisig: a 2-of-2 treasury requiring both tea
     subtitle: 'building the visual language for a popup archive store',
     role: 'Design Systems · Brand · UI/UX',
     period: '2024 – 2025',
-    tags: ['design systems', 'brand', 'shopify', 'cross-platform'],
+    tags: ['e-commerce', 'fashion', 'branding', 'design systems'],
 
     betLabel: 'the brief',
     hideFeaturesLabel: true,
@@ -190,8 +196,8 @@ The goal: make the implicit explicit. Build a design system that could serve a w
 
 The system includes DESIGN.md — a plain-text spec written to be read by AI coding tools. Before it existed, AI-generated UI came back generic. After: on-brand, first pass.`,
       visual: {
-        src: '/images/tessaverse/edge-city-goods/store-hero.png',
-        alt: 'Edge City Goods live store — cloud background, floating products, nav pill',
+        src: '/images/tessaverse/edge-city-goods/egde city goods homepage v2.jpg',
+        alt: 'Edge City Goods homepage v2 — full design system applied',
       },
     },
 
@@ -308,7 +314,6 @@ e.g. Button / Checkout / Hover, Option Selector / Size / Selected`,
       },
     ],
 
-    substackUrl: undefined,
   },
 ];
 

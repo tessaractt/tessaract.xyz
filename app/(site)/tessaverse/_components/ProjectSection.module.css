@@ -42,7 +42,7 @@
 .description {
   font-family: var(--font-mono);
   font-size: 0.875rem;
-  color: var(--color-royal-blue);
+  color: var(--color-black);
   line-height: 1.5;
   margin: 0;
 }
@@ -96,4 +96,14 @@
   max-width: 100%;
   height: auto;
   object-fit: contain;
+}
+
+.tags {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-muted);
+  text-transform: lowercase;
+  letter-spacing: 0.03em;
+  text-align: left;
+  margin-top: 0.5rem;
 }

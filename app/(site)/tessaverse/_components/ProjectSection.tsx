@@ -12,6 +12,9 @@ export function ProjectSection({ project }: ProjectSectionProps) {
         <article className={`${styles.section} ${project.colSpan === 2 ? styles.fullSpan : styles.halfSpan}`}>
             <div className={styles.header}>
                 <h2 className={styles.title}>{project.title}</h2>
+                {project.tags && project.tags.length > 0 && (
+                    <p className={styles.tags}>{project.tags.join(' · ')}</p>
+                )}
                 <p className={styles.description}>{project.description}</p>
 
                 {(project.ctas && project.ctas.length > 0 || project.caseStudySlug) && (

@@ -154,7 +154,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
   // ── Case study view ──
   if (caseStudy) {
-    const { title, subtitle, role, period, tags, betLabel, bet, built, hideFeaturesLabel, features, stack, substackUrl } = caseStudy;
+    const { title, subtitle, role, period, tags, betLabel, bet, built, hideFeaturesLabel, features, stack, fullStory } = caseStudy;
 
     return (
       <CopyGuard>
@@ -230,18 +230,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </section>
         )}
 
-        {/* Full Story CTA — always shown; link hidden until substackUrl is set */}
-        <section className={styles.section}>
-          <SectionLabel>full story</SectionLabel>
-          <p className={styles.body}>
-            The complete build story — the staking pivot, PostHog data, what failed and why, and what I&apos;d do differently — is on Substack.
-          </p>
-          {substackUrl && (
-            <Link href={substackUrl} target="_blank" rel="noopener noreferrer" className={styles.ctaLink}>
-              → Read the full case study on Substack
-            </Link>
-          )}
-        </section>
+        {/* Full Story — only rendered when defined in case study data */}
+        {fullStory && (
+          <section className={styles.section}>
+            <SectionLabel>full story</SectionLabel>
+            <p className={styles.body}>{fullStory.body}</p>
+            {fullStory.substackUrl && (
+              <Link href={fullStory.substackUrl} target="_blank" rel="noopener noreferrer" className={styles.ctaLink}>
+                → Read the full case study on Substack
+              </Link>
+            )}
+          </section>
+        )}
       </CopyGuard>
     );
   }
