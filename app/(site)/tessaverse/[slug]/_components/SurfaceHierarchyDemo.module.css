@@ -1,0 +1,84 @@
+.container {
+  border-radius: 16px;
+  padding: 2.5rem 2.5rem 1.5rem;
+  background-image: url('/images/tessaverse/edge-city-goods/blue gradient 1.png');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hint {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.04em;
+  margin-top: 1.5rem;
+  pointer-events: none;
+}
+
+/* Two-column: chips left, info right — info column is fixed space so nothing ever shifts */
+.layout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+.chips {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.chip {
+  padding: 1.25rem 4.5rem;
+  border-radius: 12px;
+  cursor: default;
+  transition: box-shadow 0.3s ease;
+}
+
+.chip:hover {
+  box-shadow: 0 0 0 1.5px rgba(255,255,255,0.5);
+}
+
+.chipLabel {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  white-space: nowrap;
+}
+
+/* Info panel lives in the right column — opacity only, no position changes */
+.info {
+  background: rgba(0, 0, 0, 0.50);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  pointer-events: none;
+}
+
+.infoVisible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.infoToken {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.95);
+}
+
+.infoUse {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.6;
+}

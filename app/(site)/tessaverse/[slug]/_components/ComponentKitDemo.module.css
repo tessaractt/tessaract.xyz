@@ -1,0 +1,457 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap');
+
+/* ─── Component Kit (EC design system) ───────────────────
+   B = padding from scene edges = 2.75rem
+   A = gap between all components = 1.5rem
+*/
+
+.ecScene {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  background-image: url('/images/tessaverse/edge-city-goods/component background.png');
+  background-size: cover;
+  background-position: center;
+  padding: 2.75rem; /* B */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ecColumns {
+  display: flex;
+  gap: 1.5rem; /* A */
+  align-items: stretch;
+  zoom: 0.9;
+}
+
+.ecLeftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* A */
+  width: 46%;
+  flex-shrink: 0;
+}
+
+.ecRightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* A */
+  flex: 1;
+}
+
+/* ── Shared atoms ─────────────────────────────────────── */
+
+.ecDivider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  flex-shrink: 0;
+}
+
+.ecXBtn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+.ecXBtn:hover { color: rgba(255,255,255,0.9); }
+
+/* ── Cart panel — glass light ─────────────────────────── */
+
+.ecCart {
+  width: 100%;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 1rem;
+  padding: 1.1rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.ecCartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ecCartHeading {
+  font-family: Inter, sans-serif;
+  font-size: 0.63rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.ecCartItem {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.ecCartThumb {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.ecCartItemBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.ecCartItemTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.ecCartItemName {
+  font-family: Inter, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.ecCartItemPrice {
+  font-family: Inter, sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.85);
+}
+
+.ecCartItemAttr {
+  font-family: Inter, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.ecCartItemBottomRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.2rem;
+}
+
+.ecDeleteBtn {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 9999px;
+  color: rgba(255,255,255,0.7);
+  font-family: Inter, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.ecDeleteBtn:hover { background: rgba(255,255,255,0.22); }
+
+.ecCartMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.ecCartMetaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ecCartMetaLabel {
+  font-family: Inter, sans-serif;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.ecCartMetaValue {
+  font-family: Inter, sans-serif;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.85);
+}
+
+.ecCheckoutBtn {
+  width: 100%;
+  background: #ffffff;
+  color: #757575;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-family: Inter, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+.ecCheckoutBtn:hover { opacity: 0.9; }
+
+/* ── Size guide — glass dark ──────────────────────────── */
+
+.ecSizeGuide {
+  width: 100%;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 1.35rem;
+  padding: 1.35rem;
+  box-shadow: 0 16px 64px rgba(0,0,0,0.24);
+  overflow: hidden;
+}
+
+.ecSizeGuideHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.ecSizeGuideTitle {
+  font-family: Inter, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ecSizeTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ecSizeThRow {
+  width: 80px;
+}
+
+.ecSizeTh {
+  font-family: Inter, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  padding: 0.35rem 0.2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.ecSizeTr:last-child .ecSizeTd {
+  border-bottom: none;
+}
+
+.ecSizeRowLabel {
+  font-family: Inter, sans-serif;
+  font-size: 0.58rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.3rem 0.45rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.ecSizeTd {
+  font-family: Inter, sans-serif;
+  font-size: 0.65rem;
+  color: #ffffff;
+  text-align: center;
+  padding: 0.45rem 0.2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.ecSizeTh:last-child,
+.ecSizeTd:last-child {
+  padding-right: 0.75rem;
+}
+
+.ecSizeGuideNote {
+  margin-top: 1rem;
+  font-family: Inter, sans-serif;
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ── Product card — glass light ───────────────────────── */
+
+.ecProductCard {
+  width: 100%;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 1rem;
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.ecProductTitle {
+  font-family: Inter, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.ecProductDesc {
+  font-family: Inter, sans-serif;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+
+.ecProductAttrs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ecProductAttrRow {
+  font-family: Inter, sans-serif;
+  font-size: 0.74rem;
+  color: rgba(255,255,255,0.75);
+}
+
+.ecProductAttrRow strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.ecSizePickerWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ecSizePills {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.ecSizePill {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.30);
+  border-radius: 9999px;
+  color: rgba(255,255,255,0.75);
+  font-family: Inter, sans-serif;
+  font-size: 0.72rem;
+  padding: 0.3rem 0.65rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.ecSizePill:hover {
+  border-color: rgba(255,255,255,0.7);
+  color: #ffffff;
+}
+.ecSizePillActive {
+  background: rgba(255,255,255,0.20);
+  border-color: rgba(255,255,255,0.80);
+  color: #ffffff;
+}
+
+.ecSizingLink {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  font-family: Inter, sans-serif;
+  font-size: 0.75rem;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.ecSizingLink:hover { color: rgba(255,255,255,0.85); }
+
+/* ── Add to cart — outside glass ─────────────────────── */
+
+.ecAddToCartBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: rgba(255,255,255,0.85);
+  color: #757575;
+  border: none;
+  border-radius: 8px;
+  padding: 0.85rem 1.25rem;
+  font-family: Inter, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.ecAddToCartBtn:hover { background: #ffffff; }
+
+/* ── Nav pill — glass light ───────────────────────────── */
+
+.ecNavPill {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 9999px;
+  padding: 0.55rem 0.9rem;
+  align-self: flex-start;
+}
+
+.ecNavCount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.30);
+  font-family: Inter, sans-serif;
+  font-size: 0.75rem;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.ecNavLinks {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.88);
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+.ecNavClose {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease;
+  flex-shrink: 0;
+}
+.ecNavClose:hover { color: rgba(255,255,255,0.9); }

@@ -24,12 +24,40 @@ export interface StackRow {
   technology: string;
 }
 
+export interface TypeRole {
+  role: string;
+  specs: string;
+  example: string;
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: number;
+  fontStyle?: 'italic' | 'normal';
+  textTransform?: 'uppercase' | 'none';
+  lineHeight?: number;
+  letterSpacing?: string;
+}
+
+export interface ColorToken {
+  token: string;
+  value: string;
+  swatch: string;
+  use: string;
+}
+
 export type FeatureBlock =
-  | { type: 'text'; label: string; body: string; centered?: boolean; noDash?: boolean }
+  | { type: 'text'; label: string; body: string; centered?: boolean; noDash?: boolean; noTight?: boolean }
   | { type: 'loop'; label: string; steps: string[] }
   | { type: 'table'; label: string; body?: string; headers: string[]; rows: (string | number)[][] }
   | { type: 'list'; label: string; body?: string; items: string[]; centered?: boolean; noDash?: boolean }
-  | { type: 'rule-list'; label: string; body?: string; items: string[]; centered?: boolean; noDash?: boolean; leftAlign?: boolean }  // borderless rows, no dash prefix
+  | { type: 'rule-list'; label: string; body?: string; items: string[]; centered?: boolean; noDash?: boolean; leftAlign?: boolean }
+  | { type: 'color-cards'; label: string; body?: string; centered?: boolean; noDash?: boolean; tokens: ColorToken[] }
+  | { type: 'type-scale'; label: string; body?: string; centered?: boolean; noDash?: boolean; roles: TypeRole[] }
+  | { type: 'surface-demo'; label: string; body?: string; centered?: boolean; noDash?: boolean }
+  | { type: 'motion-demo'; label: string; centered?: boolean; noDash?: boolean }
+  | { type: 'component-kit-demo'; label: string; body?: string; centered?: boolean; noDash?: boolean }
+  | { type: 'visual-diff-demo'; label: string; centered?: boolean; noDash?: boolean }
+  | { type: 'llms-pipeline-demo'; label: string; centered?: boolean; noDash?: boolean }
+  | { type: 'json-ld-demo'; label: string; centered?: boolean; noDash?: boolean }
   | { type: 'visual'; label: string; body: string; visual: VisualSlot }
   | { type: 'text+visual'; label: string; body: string; visual: VisualSlot };
 
@@ -177,7 +205,7 @@ Payouts were distributed via Safe multisig: a 2-of-2 treasury requiring both tea
     title: 'Edge City Goods',
     subtitle: 'a design system and AI-native commerce layer for a popup archive store',
     role: 'Design Systems · Brand · UI/UX',
-    period: '2024 – 2025',
+    period: '2025 – present',
     tags: ['design systems', 'AI-native', 'e-commerce', 'brand strategy'],
 
     betLabel: 'the brief',
@@ -212,6 +240,12 @@ After: AI sessions open with full design context. Right tokens. Right patterns. 
 This is what turns a design system from documentation into infrastructure. It doesn't just tell humans what to build — it tells the tools.`,
       },
       {
+        type: 'visual-diff-demo',
+        label: '',
+        centered: true,
+        noDash: true,
+      },
+      {
         type: 'text',
         label: 'brand foundation',
         body: `The aesthetic isn't arbitrary. It traces back to a worldview.
@@ -224,97 +258,106 @@ float → unhurried, dreamy, slightly above everything
 white on sky → restraint, doing more with less`,
       },
       {
-        type: 'table',
+        type: 'color-cards',
         label: 'color',
-        body: 'Seven semantic tokens. No raw values in components — ever. --color-accent is for interactive elements only. Any accent-colored element that isn\'t clickable is a violation.',
-        headers: ['Token', 'Use'],
-        rows: [
-          ['--color-surface', 'Product cards, nav pill, cart panel (glass light)'],
-          ['--color-surface-dark', 'Modals, overlays, size guide (glass dark)'],
-          ['--color-surface-solid', 'Form inputs, focused states (glass solid)'],
-          ['--color-text', 'All primary text'],
-          ['--color-text-muted', 'Secondary labels, metadata'],
-          ['--color-accent', 'Interactive elements only — links, buttons, active states'],
-          ['--color-border', 'Standard borders'],
-          ['--color-border-subtle', 'Dividers, quiet structure'],
+        centered: true,
+        noDash: true,
+        body: 'Semantic tokens. No raw values in components — ever. --color-accent is for interactive elements only. Any accent-colored element that isn\'t clickable is a violation.',
+        tokens: [
+          { token: '--color-surface', value: 'rgba(255,255,255,0.15)', swatch: 'rgba(255,255,255,0.15)', use: 'Product cards, nav pill, cart panel.' },
+          { token: '--color-surface-dark', value: 'rgba(0,0,0,0.35)', swatch: 'rgba(0,0,0,0.35)', use: 'Modals, overlays, size guide.' },
+          { token: '--color-surface-solid', value: 'rgba(255,255,255,0.80)', swatch: 'rgba(255,255,255,0.80)', use: 'Form inputs, focused states.' },
+          { token: '--color-text', value: '#ffffff', swatch: '#ffffff', use: 'All primary text.' },
+          { token: '--color-text-muted', value: 'rgba(255,255,255,0.50)', swatch: 'rgba(255,255,255,0.50)', use: 'Secondary labels, metadata.' },
+          { token: '--color-accent', value: 'rgba(255,255,255,0.80)', swatch: 'rgba(255,255,255,0.80)', use: 'Interactive elements only — never decorative.' },
+          { token: '--color-border', value: 'rgba(255,255,255,0.20)', swatch: 'rgba(255,255,255,0.20)', use: 'Standard borders on glass surfaces.' },
+          { token: '--color-border-subtle', value: 'rgba(255,255,255,0.10)', swatch: 'rgba(255,255,255,0.10)', use: 'Dividers, quiet structure.' },
         ],
       },
       {
-        type: 'text',
+        type: 'type-scale',
         label: 'typography',
         centered: true,
         noDash: true,
-        body: `Two fonts. Strict roles. No overlap.
-
-Instrument Serif italic → navigation and menu labels only. Always italic. The single expressive element in an otherwise minimal system.
-
-Inter → everything else. Product titles, prices, descriptions, labels, policies. The workhorse.
-
-The constraint is the point. When only one element is expressive, it carries more weight.`,
-      },
-      {
-        type: 'table',
-        label: 'surface hierarchy',
-        body: 'Three levels of glass. Each has one job.',
-        headers: ['Surface', 'Token', 'Use'],
-        rows: [
-          ['glass light', '--color-surface', 'product cards, nav pill, cart panel'],
-          ['glass dark', '--color-surface-dark', 'modals, overlays, size guide'],
-          ['glass solid', '--color-surface-solid', 'form inputs, focused states'],
+        body: `Two fonts. Strict roles. No overlap.\n\nInstrument Serif italic → navigation and menu labels only. Always italic. The single expressive element in an otherwise minimal system.\n\nInter → everything else. Product titles, prices, descriptions, labels, policies. The workhorse.\n\nThe constraint is the point. When only one element is expressive, it carries more weight.`,
+        roles: [
+          { role: 'page-title', specs: '2.5rem / 500 / 1.0 / uppercase', example: 'Edge City Goods', fontFamily: 'Inter, sans-serif', fontSize: '2.5rem', fontWeight: 500, textTransform: 'uppercase', lineHeight: 1.0 },
+          { role: 'product-title', specs: '1.25rem / 500 / 1.3', example: 'Esmeralda 2026 Tee', fontFamily: 'Inter, sans-serif', fontSize: '1.25rem', fontWeight: 500, lineHeight: 1.3 },
+          { role: 'product-price', specs: '0.875rem / 400 / 1.4', example: '$45.00', fontFamily: 'Inter, sans-serif', fontSize: '0.875rem', fontWeight: 400, lineHeight: 1.4 },
+          { role: 'nav-label', specs: '1rem / 400 / 1.0 / italic', example: 'Shop · Archive · About', fontFamily: '"Instrument Serif", serif', fontSize: '1rem', fontWeight: 400, fontStyle: 'italic', lineHeight: 1.0 },
+          { role: 'body', specs: '1rem / 400 / 1.6', example: 'Objects that carry meaning because of what happened around them.', fontFamily: 'Inter, sans-serif', fontSize: '1rem', fontWeight: 400, lineHeight: 1.6 },
+          { role: 'body-sm', specs: '0.875rem / 400 / 1.5', example: "Limited. When it's gone, it's gone.", fontFamily: 'Inter, sans-serif', fontSize: '0.875rem', fontWeight: 400, lineHeight: 1.5 },
+          { role: 'label', specs: '0.75rem / 500 / 1.0 / uppercase / 0.08em', example: 'New Drop · Esmeralda 2026', fontFamily: 'Inter, sans-serif', fontSize: '0.75rem', fontWeight: 500, textTransform: 'uppercase', lineHeight: 1.0, letterSpacing: '0.08em' },
         ],
       },
       {
-        type: 'text',
+        type: 'surface-demo',
+        label: 'surface hierarchy',
+        centered: true,
+        noDash: true,
+        body: `Every surface in the store is one of three glass levels. Naming them as tokens means no raw rgba values in component code — any developer or AI tool knows exactly which surface to reach for without guessing.`,
+      },
+      {
+        type: 'motion-demo',
         label: 'motion',
         centered: true,
         noDash: true,
-        body: `Two motion patterns define the brand feel.
-
-float — product images drift -12px vertically on a 6s ease-in-out loop. Ambient, unhurried. Every floating element has a staggered delay so nothing moves in unison.
-
-sibling dim — when one product is hovered, siblings drop to 70% opacity. The hovered item scales to 1.05× and rotates 1°. The effect pulls focus without hiding anything.
-
-Both animations respect prefers-reduced-motion. No exceptions.`,
       },
       {
         type: 'rule-list',
         label: 'cross-platform tokens',
         centered: true,
         noDash: true,
-        body: 'One tokens.json file. Three platforms. Change a value once — web store, iOS app, and World mini app all stay in sync.',
+        body: 'One tokens.json file. Two platforms. Change a value once — web store and iOS app stay in sync.',
         items: [
           'web → CSS custom properties in app.css, consumed by Tailwind',
           'iOS → BrandTokens.swift — glass surfaces become native .ultraThinMaterial and .regularMaterial. better performance, better system integration',
-          'world mini app → web tokens apply directly (WebView), with documented constraints: no hover states, single column only, safe area awareness',
         ],
       },
       {
-        type: 'list',
+        type: 'component-kit-demo',
         label: 'selected components',
         centered: true,
         noDash: true,
-        body: '60+ components in Figma, tokens synced via Tokens Studio — no manual re-entry. A few examples:',
-        items: [
-          'nav pill — primary navigation in a single pill, fixed top-right. collapsed: cart count + expand. expanded: all nav links in Instrument Serif italic. glass light surface.',
-          'product card — image (1:1), title, price. no explicit card frame. the product floats free against the background. sibling dim makes the grid interactive.',
-          'cart panel — glass light dropdown attached to the nav pill. custom scrollbar. line items, quantity controls, subtotal, checkout.',
-          'size guide modal — the first production use of glassmorphic-dark. contrast creates hierarchy. everything behind it recedes.',
-        ],
+        body: 'full component library in Figma, tokens synced via Tokens Studio — no manual re-entry. A few examples:',
       },
       {
         type: 'text',
-        label: 'the AI-native commerce layer — makes money.',
-        body: `AI-mediated shopping is growing. When someone asks Claude or Perplexity "where do I get Edge City merch?" — you need to be the answer. This layer makes that possible.
+        label: 'the AI-native commerce layer — increase visibility.',
+        body: `AI-mediated shopping is growing. When someone asks Claude or Perplexity "where do I get Edge City merch?" — you need to be the answer. This layer makes that possible.`,
+      },
+      {
+        type: 'text',
+        label: '',
+        body: `**llms.txt + llms-full.txt** — the emerging standard for LLM discoverability. Every product, every page, in plain language. Crawled by Claude, Perplexity, and others automatically.`,
+      },
+      {
+        type: 'llms-pipeline-demo',
+        label: '',
+        centered: true,
+        noDash: true,
+      },
+      {
+        type: 'text',
+        label: '',
+        noTight: true,
+        body: `**JSON-LD Schema.org markup** — structured product data auto-generated from live Shopify data. Every product, including future ones, marked up correctly without touching the code again.`,
+      },
+      {
+        type: 'json-ld-demo',
+        label: '',
+        centered: true,
+        noDash: true,
+      },
+      {
+        type: 'text',
+        label: '',
+        noTight: true,
+        body: `**FAQ page built as explicit Q&A** — the format chatbots parse most effectively. What is Edge City? What is a network state? What does "tools for human flourishing" mean? Structured for answer engines, not keyword density.
 
-llms.txt + llms-full.txt — the emerging standard for LLM discoverability. Every product, every page, in plain language. Crawled by Claude, Perplexity, and others automatically.
+**Product metadata strategy** — SEO titles, descriptions, and tags written to answer real questions people ask AI, not keyword-stuffed for Google.
 
-JSON-LD Schema.org markup — structured product data auto-generated from live Shopify data. Every product, including future ones, marked up correctly without touching the code again.
-
-FAQ page built as explicit Q&A — the format chatbots parse most effectively. What is Edge City? What is a network state? What does "tools for human flourishing" mean? Structured for answer engines, not keyword density.
-
-Product metadata strategy — SEO titles, descriptions, and tags written to answer real questions people ask AI, not keyword-stuffed for Google.
-
-The stores legible to agents now are building a moat. This is that work.`,
+AI-mediated discovery is still in early adoption. Most brands haven't structured their inventory for machine consumption yet. This builds that infrastructure while the gap is still open.`,
       },
       {
         type: 'rule-list',
@@ -325,7 +368,7 @@ The stores legible to agents now are building a moat. This is that work.`,
           'BRAND.md — the living brand document. the why behind every visual decision.',
           'DESIGN.md — one file any developer or AI coding tool reads before touching the codebase.',
           'tokens.json — platform-agnostic token file. web, iOS, and World mini app in sync.',
-          'Figma library — 60+ components, every variant, every state.',
+          'Figma library — full component library in Figma, every variant, every state.',
           'llms.txt + JSON-LD — the store is legible to AI agents.',
           'FAQ page — structured for answer engines.',
           'INSTRUCTIONS.md — a reusable workflow that reproduces this entire deliverable set for any new client.',

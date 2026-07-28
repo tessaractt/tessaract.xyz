@@ -3,6 +3,15 @@
  * ------------------------------------- */
 
 /* ============================================
+ * LAYOUT STABILITY RULE
+ * Interactive/toggling blocks must never shift the page height.
+ * Any component with toggling state must use a fixed height slot:
+ *   - Set an explicit height on the outer wrapper
+ *   - Children fill it with height: 100%
+ *   - Never rely on content height for toggling containers
+ * ============================================ */
+
+/* ============================================
  * LAYOUT
  * ============================================ */
 
@@ -210,6 +219,12 @@
   gap: var(--space-5);
 }
 
+/* Pull a block closer to the one above — use when label is empty
+   and the block is a direct visual continuation of the prior block */
+.featureBlockTight {
+  margin-top: calc(-1 * var(--space-10));
+}
+
 /* ============================================
  * CORE LOOP
  * ============================================ */
@@ -322,6 +337,120 @@
 /* ============================================
  * RULE LIST (scoring system style — dividers only, no dash)
  * ============================================ */
+
+/* ─── Typography Scale ────────────────────────────────── */
+
+.typeScale {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1.5rem;
+}
+
+.typeRow {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 1.25rem 0;
+  border-bottom: var(--border-width) solid var(--color-gray-light);
+}
+
+.typeRow:first-child {
+  border-top: var(--border-width) solid var(--color-gray-light);
+}
+
+.typeRowMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex-shrink: 0;
+}
+
+.typeRoleName {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--color-royal-blue);
+}
+
+.typeRoleSpecs {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--color-muted);
+  line-height: 1.4;
+}
+
+.typeRowExample {
+  color: var(--color-black);
+}
+
+/* ─── Color Cards ─────────────────────────────────────── */
+
+.colorCardGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.colorCardItem {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(200, 210, 220, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.colorCardItem:hover {
+  transform: scale(1.02);
+}
+
+.colorCardScene {
+  height: 90px;
+  background: linear-gradient(160deg, #a8c8e8 0%, #c8dff5 60%, #ddeeff 100%);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.colorCardOverlay {
+  position: absolute;
+  inset: 0;
+}
+
+.colorCardFooter {
+  padding: 6px;
+  background: #f5f7fa;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.colorTokenName {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--color-royal-blue);
+  font-weight: 700;
+  word-break: break-all;
+  line-height: 1.3;
+}
+
+.colorTokenValue {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  color: var(--color-muted);
+  word-break: break-all;
+  line-height: 1.3;
+}
+
+.colorTokenUse {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  color: var(--color-black);
+  line-height: 1.4;
+}
+
+/* ──────────────────────────────────────────────────────── */
 
 .ruleList {
   border-top: var(--border-width) solid var(--color-gray-light);

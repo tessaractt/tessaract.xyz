@@ -11,6 +11,12 @@ import { getAllProjects, getProjectBySlug } from '@/data/projects';
 import { getCaseStudyBySlug, type FeatureBlock } from '@/data/case-studies';
 import { CopyGuard } from './_components/CopyGuard';
 import { ProtectedVisual } from './_components/ProtectedVisual';
+import { SurfaceHierarchyDemo } from './_components/SurfaceHierarchyDemo';
+import { MotionDemo } from './_components/MotionDemo';
+import { ComponentKitDemo } from './_components/ComponentKitDemo';
+import { VisualDiffDemo } from './_components/VisualDiffDemo';
+import { LlmsPipelineDemo } from './_components/LlmsPipelineDemo';
+import { JsonLdDemo } from './_components/JsonLdDemo';
 import styles from './page.module.css';
 
 interface ProjectPageProps {
@@ -65,9 +71,14 @@ function VisualSlot({ src, alt, caption }: { src: string; alt: string; caption?:
 function FeatureSection({ block }: { block: FeatureBlock }) {
   const isCentered = block.type === 'loop' || block.type === 'table' || ('centered' in block && block.centered === true);
   const isNoDash = block.type === 'loop' || block.type === 'table' || ('noDash' in block && block.noDash === true);
+  const isTight =
+    block.type === 'visual-diff-demo' ||
+    block.type === 'llms-pipeline-demo' ||
+    block.type === 'json-ld-demo' ||
+    (block.type === 'text' && !block.label && !block.noTight);
   return (
-    <div className={styles.featureBlock}>
-      <SectionLabel noDash={isNoDash} centered={isCentered}>{block.label}</SectionLabel>
+    <div className={[styles.featureBlock, isTight ? styles.featureBlockTight : ''].filter(Boolean).join(' ')}>
+      {block.label && <SectionLabel noDash={isNoDash} centered={isCentered}>{block.label}</SectionLabel>}
 
       {block.type === 'loop' && (
         <LoopBlock steps={block.steps} />
@@ -108,6 +119,90 @@ function FeatureSection({ block }: { block: FeatureBlock }) {
         </>
       )}
 
+      {block.type === 'motion-demo' && (
+        <MotionDemo />
+      )}
+
+      {block.type === 'visual-diff-demo' && (
+        <VisualDiffDemo />
+      )}
+
+      {block.type === 'llms-pipeline-demo' && (
+        <LlmsPipelineDemo />
+      )}
+
+      {block.type === 'json-ld-demo' && (
+        <JsonLdDemo />
+      )}
+
+      {block.type === 'component-kit-demo' && (
+        <>
+          {block.body && <p className={styles.body}>{block.body}</p>}
+          <ComponentKitDemo />
+        </>
+      )}
+
+      {block.type === 'surface-demo' && (
+        <>
+          {block.body && block.body.split('\n\n').map((para, i) => (
+            <p key={i} className={styles.body}>{para}</p>
+          ))}
+          <SurfaceHierarchyDemo />
+        </>
+      )}
+
+      {block.type === 'type-scale' && (
+        <>
+          {block.body && block.body.split('\n\n').map((para, i) => (
+            <p key={i} className={styles.body}>{para}</p>
+          ))}
+          <div className={styles.typeScale}>
+            {block.roles.map((r) => (
+              <div key={r.role} className={styles.typeRow}>
+                <div className={styles.typeRowMeta}>
+                  <p className={styles.typeRoleName}>{r.role}</p>
+                  <p className={styles.typeRoleSpecs}>{r.specs}</p>
+                </div>
+                <div className={styles.typeRowExample}>
+                  <span style={{
+                    fontFamily: r.fontFamily,
+                    fontSize: r.fontSize,
+                    fontWeight: r.fontWeight,
+                    fontStyle: r.fontStyle ?? 'normal',
+                    textTransform: r.textTransform ?? 'none',
+                    lineHeight: r.lineHeight,
+                    letterSpacing: r.letterSpacing ?? 'normal',
+                    color: 'var(--color-black)',
+                  }}>
+                    {r.example}
+                  </span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
+      {block.type === 'color-cards' && (
+        <>
+          {block.body && <p className={styles.body}>{block.body}</p>}
+          <div className={styles.colorCardGrid}>
+            {block.tokens.map((t) => (
+              <div key={t.token} className={styles.colorCardItem}>
+                <div className={styles.colorCardScene}>
+                  <div className={styles.colorCardOverlay} style={{ background: t.swatch }} />
+                </div>
+                <div className={styles.colorCardFooter}>
+                  <p className={styles.colorTokenName}>{t.token}</p>
+                  <p className={styles.colorTokenValue}>{t.value}</p>
+                  <p className={styles.colorTokenUse}>{t.use}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
       {block.type === 'rule-list' && (
         <>
           {block.body && <p className={styles.body}>{block.body}</p>}
@@ -129,7 +224,7 @@ function FeatureSection({ block }: { block: FeatureBlock }) {
       {block.type === 'text' && (
         <>
           {block.body.split('\n\n').map((para, i) => (
-            <p key={i} className={styles.body}>{para}</p>
+            <p key={i} className={styles.body}>{richText(para)}</p>
           ))}
         </>
       )}
@@ -159,6 +254,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
     return (
       <CopyGuard>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
         <Link href="/tessaverse" className={styles.backLink}>← work</Link>
 
         {/* Header */}
@@ -183,7 +281,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {/* What We Built */}
         <section className={styles.section}>
-          <SectionLabel>what we built</SectionLabel>
+          <SectionLabel>what I built</SectionLabel>
           {built.body.split('\n\n').map((para, i) => (
             <p key={i} className={styles.body}>{para}</p>
           ))}

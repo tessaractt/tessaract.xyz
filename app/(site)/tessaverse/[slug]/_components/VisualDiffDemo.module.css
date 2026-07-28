@@ -1,0 +1,106 @@
+.diffWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.diffToggleRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.diffToggleBtn {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-gray-light);
+  background: transparent;
+  color: var(--color-black);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.diffToggleBtn:hover {
+  border-color: var(--color-royal-blue);
+  color: var(--color-royal-blue);
+}
+
+.diffToggleBtnActive {
+  border-color: var(--color-royal-blue);
+  color: var(--color-royal-blue);
+}
+
+.diffScene {
+  border-radius: 16px;
+  padding: 2rem;
+  background-image: url('/images/tessaverse/edge-city-goods/blue gradient 1.png');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Rule: no interactive block may change the container height.
+   Both card slots fill a fixed height — never shifts on toggle. */
+.diffLayout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 2.5rem;
+  align-items: stretch;
+  height: 360px;
+}
+
+.diffCardWrap {
+  width: 240px;
+  height: 100%;
+}
+
+.diffAnnotations {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.35);
+}
+
+.diffAnnotationRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.35);
+  gap: 1rem;
+}
+
+.diffAnnotationLabel {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.6);
+  text-transform: lowercase;
+  flex-shrink: 0;
+}
+
+.diffAnnotationValue {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.9);
+  text-align: right;
+}
+
+.diffAnnotationValueOn {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* Floating shirt animation */
+@keyframes floatUpAndDown {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0px); }
+}
+
+.floatingShirt {
+  animation: floatUpAndDown 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floatingShirt { animation: none; }
+}

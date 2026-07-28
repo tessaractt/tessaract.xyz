@@ -1,0 +1,1205 @@
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap');
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 6rem 2rem 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 5rem;
+}
+
+.sandboxLabel {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-muted);
+  text-transform: lowercase;
+  letter-spacing: 0.08em;
+  margin-bottom: -4rem;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: var(--color-royal-blue);
+  font-weight: 400;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.sectionLabel {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-royal-blue);
+  font-weight: 700;
+  text-transform: lowercase;
+}
+
+.body {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--color-black);
+}
+
+/* ─── Color Cards ─────────────────────────────────────── */
+
+.colorGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.colorCard {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(200,210,220,0.4);
+  transition: transform 0.2s ease;
+}
+
+.colorCard:hover {
+  transform: scale(1.02);
+}
+
+/* Sky gradient background so glass/transparent tokens show correctly */
+.colorCardScene {
+  height: 100px;
+  background: linear-gradient(160deg, #a8c8e8 0%, #c8dff5 60%, #ddeeff 100%);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.colorCardOverlay {
+  position: absolute;
+  inset: 0;
+}
+
+.colorCardFooter {
+  padding: 6px;
+  background: #f5f7fa;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.tokenName {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--color-royal-blue);
+  font-weight: 700;
+  word-break: break-all;
+  line-height: 1.3;
+}
+
+.tokenValue {
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  color: var(--color-muted);
+  word-break: break-all;
+  line-height: 1.3;
+}
+
+.tokenUse {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  color: var(--color-black);
+  line-height: 1.5;
+}
+
+/* ─── Surface Demo ────────────────────────────────────── */
+
+.surfaceContainer {
+  border-radius: 16px;
+  padding: 2.5rem;
+  min-height: 180px;
+  /* fixed height so nothing ever shifts */
+  position: relative;
+  background-image: url('/images/tessaverse/edge-city-goods/blue gradient 1.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.surfaceChips {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.surfaceChip {
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  cursor: default;
+  transition: box-shadow 0.3s ease;
+}
+
+.surfaceChip:hover {
+  box-shadow: 0 0 0 1.5px rgba(255,255,255,0.5);
+}
+
+.surfaceChipLabel {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+/* Absolutely positioned — completely out of the chip layout flow */
+.surfaceModal {
+  position: absolute;
+  top: 50%;
+  right: 2.5rem;
+  transform: translateY(-50%); /* static centering only — not animated */
+  max-width: 240px;
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+  pointer-events: none;
+}
+
+.surfaceModalVisible {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.surfaceModalToken {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.95);
+}
+
+.surfaceModalUse {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.5;
+}
+
+/* ─── Float Demo ──────────────────────────────────────── */
+
+.floatRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.floatText {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.floatVisual {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.floatingShirt {
+  font-size: 3.5rem;
+  animation: floatUpAndDown 6s ease-in-out infinite;
+}
+
+@keyframes floatUpAndDown {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-16px); }
+  100% { transform: translateY(0px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .floatingShirt { animation: none; }
+}
+
+/* ─── Typography Scale ────────────────────────────────── */
+
+.typeScale {
+  display: flex;
+  flex-direction: column;
+}
+
+.typeScaleHeader {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-gray-light);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.typeScaleFonts {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+.typeScaleNote {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--color-muted);
+  line-height: 1.5;
+}
+
+.typeRow {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--color-gray-light);
+}
+
+.typeRowMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex-shrink: 0;
+}
+
+.typeRoleName {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--color-royal-blue);
+}
+
+.typeRoleSpecs {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: var(--color-muted);
+  line-height: 1.4;
+}
+
+.typeRowExample {
+  color: var(--color-black);
+}
+
+/* ─── Float single ────────────────────────────────────── */
+
+.floatingShirtSingle {
+  display: inline-block;
+  animation: floatUpAndDown 6s ease-in-out infinite;
+}
+
+/* ─── Visual Diff ─────────────────────────────────────── */
+
+.diffWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.diffToggleRow {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.diffToggleBtn {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-gray-light);
+  background: transparent;
+  color: var(--color-black);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.diffToggleBtn:hover {
+  border-color: var(--color-royal-blue);
+  color: var(--color-royal-blue);
+}
+
+.diffToggleBtnActive {
+  border-color: var(--color-royal-blue);
+  color: var(--color-royal-blue);
+}
+
+.diffScene {
+  border-radius: 16px;
+  padding: 2rem;
+  background-image: url('/images/tessaverse/edge-city-goods/blue gradient 1.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.diffLayout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 2.5rem;
+  align-items: stretch;
+  /* Rule: no interactive block may change the container height.
+     All toggling content must fill a fixed-height slot. */
+  height: 360px;
+}
+
+.diffCardWrap {
+  width: 240px;
+  flex-shrink: 0;
+  height: 100%; /* fills the fixed layout height — never shifts */
+}
+
+.diffAnnotations {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid rgba(255,255,255,0.35);
+}
+
+.diffAnnotationRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.35);
+  gap: 1rem;
+}
+
+.diffAnnotationLabel {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.6);
+  text-transform: lowercase;
+  flex-shrink: 0;
+}
+
+.diffAnnotationValue {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.9);
+  text-align: right;
+}
+
+.diffAnnotationValueOn {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ─── llms.txt Visualizations ────────────────────────── */
+
+.llmsScene {
+  border-radius: 16px;
+  padding: 2rem;
+  background-image: url('/images/tessaverse/edge-city-goods/blue gradient 1.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.llmsOptionLabel {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--color-royal-blue);
+  text-transform: lowercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+}
+
+.llmsCaption {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  margin-top: 1.5rem;
+  letter-spacing: 0.04em;
+}
+
+/* ── Option A: Discovery Pipeline ── */
+
+.llmsPipeline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  padding: 1rem 0;
+}
+
+.llmsNode {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 90px;
+  flex-shrink: 0;
+}
+
+.llmsNodeIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+
+.llmsNodeLabel {
+  font-family: var(--font-mono);
+  font-size: 0.685rem;
+  color: rgba(255,255,255,0.9);
+  text-align: center;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.llmsNodeSub {
+  font-family: var(--font-mono);
+  font-size: 0.645rem;
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  line-height: 1.4;
+  white-space: pre-line;
+}
+
+.llmsConnector {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.2);
+  position: relative;
+  margin-top: 24px;
+  overflow: visible;
+}
+
+.llmsDot {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  animation: llmsFlowDot 2.4s linear infinite;
+}
+
+@keyframes llmsFlowDot {
+  0%   { left: 0%;    opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { left: 100%;  opacity: 0; }
+}
+
+/* ── Option B: File Snippet + Annotations ── */
+
+.llmsFileGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.llmsFile {
+  background: rgba(0,0,0,0.45);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 10px;
+  padding: 1.1rem 1.25rem;
+  backdrop-filter: blur(12px);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  line-height: 1.9;
+}
+
+.llmsFileName {
+  font-size: 0.58rem;
+  color: rgba(255,255,255,0.35);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.llmsFileLine {
+  display: block;
+  color: rgba(255,255,255,0.85);
+  white-space: pre;
+}
+
+.llmsFileLineComment {
+  color: rgba(255,255,255,0.35);
+}
+
+.llmsFileLineHeading {
+  color: rgba(255,255,255,0.95);
+  font-weight: 600;
+}
+
+.llmsAnnotationList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 0.25rem;
+}
+
+.llmsAnnotationItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.llmsAnnotationKey {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.llmsAnnotationVal {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.5;
+}
+
+/* ── Option C: Query Comparison ── */
+
+.llmsQueryWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.llmsQueryBubble {
+  align-self: flex-end;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
+  border-radius: 18px 18px 4px 18px;
+  padding: 0.7rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: #ffffff;
+  max-width: 70%;
+}
+
+.llmsResponseWrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.llmsResponseCard {
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.llmsResponseCardLabel {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.llmsResponseCardLabelOff {
+  color: rgba(255,255,255,0.3);
+}
+
+.llmsResponseCardLabelOn {
+  color: rgba(255,255,255,0.8);
+}
+
+.llmsResponseText {
+  font-family: var(--font-mono);
+  font-size: 0.63rem;
+  line-height: 1.65;
+}
+
+.llmsResponseTextOff {
+  color: rgba(255,255,255,0.35);
+  font-style: italic;
+}
+
+.llmsResponseTextOn {
+  color: rgba(255,255,255,0.88);
+}
+
+/* ─── JSON-LD Visualization ──────────────────────────── */
+
+.jsonLdScene {
+  border-radius: 16px;
+  padding: 2rem;
+  background-image: url('/images/tessaverse/edge-city-goods/blue gradient 1.png');
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 1.5rem;
+  height: 460px;
+}
+
+/* Left: image viewer */
+.jsonLdImageCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+}
+
+.jsonLdImageWrap {
+  position: relative;
+  flex: 1;
+  width: 100%;
+}
+
+.jsonLdImage {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.35s ease;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.3));
+}
+
+.jsonLdImageVisible { opacity: 1; }
+.jsonLdImageHidden  { opacity: 0; }
+
+.jsonLdDots {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.jsonLdDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.5);
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.jsonLdDotActive {
+  background: rgba(255,255,255,0.9);
+  border-color: rgba(255,255,255,0.9);
+}
+
+/* Right: metadata */
+.jsonLdMeta {
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  backdrop-filter: blur(16px);
+  overflow-y: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.jsonLdMeta::-webkit-scrollbar { width: 4px; }
+.jsonLdMeta::-webkit-scrollbar-track { background: transparent; }
+.jsonLdMeta::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 9999px; }
+.jsonLdMeta::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.3); }
+
+.jsonLdTag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.25);
+  flex-shrink: 0;
+}
+
+.jsonLdCode {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.85);
+  white-space: pre;
+  margin: 0;
+  flex: 1;
+}
+
+/* ─── Component Kit (EC design system) ───────────────── */
+/* B = padding from scene edges = 2.75rem
+   A = gap between all components  = 1.5rem
+   All three containers scaled 90% vs original mockup
+*/
+
+.ecScene {
+  position: relative;
+  width: 100%;
+  min-height: 700px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-image: url('/images/tessaverse/edge-city-goods/component background.png');
+  background-size: cover;
+  background-position: center;
+  padding: 2.75rem; /* B */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.ecColumns {
+  display: flex;
+  gap: 1.5rem; /* A */
+  align-items: stretch;
+}
+
+.ecLeftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* A */
+  width: 46%;
+  flex-shrink: 0;
+}
+
+.ecRightCol {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* A */
+  flex: 1;
+}
+
+.ecRightSpacer {
+  flex: 1;
+}
+
+/* shared glass surface — glass light */
+.ecGlass {
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 1rem;
+}
+
+/* ── Shared atoms ───────────────────────────── */
+
+.ecDivider {
+  width: 100%;
+  height: 1px;
+  background: rgba(255,255,255,0.15);
+  flex-shrink: 0;
+}
+
+.ecXBtn {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease;
+}
+.ecXBtn:hover { color: rgba(255,255,255,0.9); }
+
+/* ── Cart panel — glass light ───────────────── */
+
+.ecCart {
+  width: 100%;
+  background: rgba(255,255,255,0.18);
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 1rem;
+  padding: 1.1rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.ecCartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ecCartHeading {
+  font-family: Inter, sans-serif;
+  font-size: 0.63rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.ecCartItem {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.ecCartThumb {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.ecCartItemBody {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.ecCartItemTopRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.ecCartItemName {
+  font-family: Inter, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.ecCartItemPrice {
+  font-family: Inter, sans-serif;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.85);
+}
+
+.ecCartItemAttr {
+  font-family: Inter, sans-serif;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.ecCartItemBottomRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.2rem;
+}
+
+.ecDeleteBtn {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 9999px;
+  color: rgba(255,255,255,0.7);
+  font-family: Inter, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.ecDeleteBtn:hover { background: rgba(255,255,255,0.22); }
+
+.ecCartMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.ecCartMetaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ecCartMetaLabel {
+  font-family: Inter, sans-serif;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.7);
+}
+
+.ecCartMetaValue {
+  font-family: Inter, sans-serif;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.85);
+}
+
+.ecCheckoutBtn {
+  width: 100%;
+  background: #ffffff;
+  color: #757575;
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem;
+  font-family: Inter, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+.ecCheckoutBtn:hover { opacity: 0.9; }
+
+/* ── Size guide — glass dark ─────────────────── */
+
+.ecSizeGuide {
+  width: 100%;
+  background: rgba(0,0,0,0.65);
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 1.35rem;
+  padding: 1.35rem;
+  box-shadow: 0 16px 64px rgba(0,0,0,0.24);
+  overflow: hidden;
+}
+
+.ecSizeGuideHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+}
+
+.ecSizeGuideTitle {
+  font-family: Inter, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.ecSizeTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ecSizeThRow {
+  width: 80px;
+}
+
+.ecSizeTh {
+  font-family: Inter, sans-serif;
+  font-size: 0.62rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.55);
+  text-align: center;
+  padding: 0.35rem 0.2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.10);
+}
+
+.ecSizeTr:last-child .ecSizeTd {
+  border-bottom: none;
+}
+
+.ecSizeRowLabel {
+  font-family: Inter, sans-serif;
+  font-size: 0.58rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.3rem 0.45rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.ecSizeTd {
+  font-family: Inter, sans-serif;
+  font-size: 0.65rem;
+  color: #ffffff;
+  text-align: center;
+  padding: 0.45rem 0.2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.ecSizeGuideNote {
+  margin-top: 1rem;
+  font-family: Inter, sans-serif;
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ── Product card — glass light ──────────────── */
+
+.ecProductCard {
+  width: 100%;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 1rem;
+  padding: 1.5rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.ecProductTitle {
+  font-family: Inter, sans-serif;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ffffff;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.ecProductDesc {
+  font-family: Inter, sans-serif;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.75);
+  line-height: 1.6;
+}
+
+.ecProductAttrs {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.ecProductAttrRow {
+  font-family: Inter, sans-serif;
+  font-size: 0.74rem;
+  color: rgba(255,255,255,0.75);
+}
+
+.ecProductAttrRow strong {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.ecSizePickerWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.ecSizePills {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.ecSizePill {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.30);
+  border-radius: 9999px;
+  color: rgba(255,255,255,0.75);
+  font-family: Inter, sans-serif;
+  font-size: 0.72rem;
+  padding: 0.3rem 0.65rem;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.ecSizePill:hover {
+  border-color: rgba(255,255,255,0.7);
+  color: #ffffff;
+}
+.ecSizePillActive {
+  background: rgba(255,255,255,0.20);
+  border-color: rgba(255,255,255,0.80);
+  color: #ffffff;
+}
+
+.ecSizingLink {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  font-family: Inter, sans-serif;
+  font-size: 0.75rem;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.ecSizingLink:hover { color: rgba(255,255,255,0.85); }
+
+.ecAddToCartBtn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: rgba(255,255,255,0.85);
+  color: #757575;
+  border: none;
+  border-radius: 8px;
+  padding: 0.85rem 1.25rem;
+  font-family: Inter, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.ecAddToCartBtn:hover { background: #ffffff; }
+
+/* ── Nav pill — glass light, bottom of right col */
+
+.ecNavPill {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255,255,255,0.20);
+  border-radius: 9999px;
+  padding: 0.55rem 0.9rem;
+  align-self: flex-start;
+}
+
+.ecNavCount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.30);
+  font-family: Inter, sans-serif;
+  font-size: 0.75rem;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.ecNavLinks {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: rgba(255,255,255,0.88);
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+.ecNavClose {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s ease;
+  flex-shrink: 0;
+}
+.ecNavClose:hover { color: rgba(255,255,255,0.9); }

@@ -1,0 +1,96 @@
+.scene {
+  border-radius: 16px;
+  padding: 2rem 2rem 1.5rem;
+  background-image: url('/images/tessaverse/edge-city-goods/blue gradient 1.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.pipeline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  padding: 1rem 0;
+}
+
+.node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  width: 90px;
+  flex-shrink: 0;
+}
+
+.nodeIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.25);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.nodeLabel {
+  font-family: var(--font-mono);
+  font-size: 0.685rem;
+  color: rgba(255,255,255,0.9);
+  text-align: center;
+  line-height: 1.5;
+  white-space: pre-line;
+}
+
+.nodeSub {
+  font-family: var(--font-mono);
+  font-size: 0.645rem;
+  color: rgba(255,255,255,0.45);
+  text-align: center;
+  line-height: 1.4;
+  white-space: pre-line;
+}
+
+.connector {
+  flex: 1;
+  height: 1px;
+  background: rgba(255,255,255,0.2);
+  position: relative;
+  margin-top: 24px;
+  overflow: visible;
+}
+
+.dot {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  animation: flowDot 2.4s linear infinite;
+}
+
+@keyframes flowDot {
+  0%   { left: 0%;   opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { left: 100%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot { animation: none; }
+}
+
+.hint {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: 0.04em;
+  margin-top: 1.5rem;
+  pointer-events: none;
+}
