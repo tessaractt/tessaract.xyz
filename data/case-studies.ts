@@ -319,7 +319,13 @@ white on sky → restraint, doing more with less`,
         label: 'selected components',
         centered: true,
         noDash: true,
-        body: 'full component library in Figma, tokens synced via Tokens Studio — no manual re-entry. A few examples:',
+        body: 'Full component library in Figma, tokens synced via Tokens Studio — no manual re-entry. A few examples:',
+      },
+      {
+        type: 'text',
+        label: '',
+        noTight: true,
+        body: `Figma is one path. But because DESIGN.md fully specifies every token, surface rule, and interaction pattern, an AI agent can build components directly from the spec — to the same standard, without opening a design file. Every interactive component in this case study was built that way: DESIGN.md as the brief, Claude as the builder.`,
       },
       {
         type: 'text',
@@ -363,16 +369,26 @@ AI-mediated discovery is still in early adoption. Most brands haven't structured
         type: 'rule-list',
         label: 'outcome',
         leftAlign: true,
-        body: 'A store that any developer can build on, any AI agent can find, and that doesn\'t require you to be the bottleneck.',
+        body: 'The brief named two problems: no design system, and no machine legibility. Both were resolvable — they just required building the right artifacts in the right order. Each deliverable below maps directly to one of those problems.',
         items: [
           'BRAND.md — the living brand document. the why behind every visual decision.',
           'DESIGN.md — one file any developer or AI coding tool reads before touching the codebase.',
-          'tokens.json — platform-agnostic token file. web, iOS, and World mini app in sync.',
-          'Figma library — full component library in Figma, every variant, every state.',
-          'llms.txt + JSON-LD — the store is legible to AI agents.',
+          'tokens.json — platform-agnostic token file. web and iOS in sync.',
+          'Figma library — full component library, every variant, every state.',
+          'llms.txt + JSON-LD — the store is machine-readable.',
           'FAQ page — structured for answer engines.',
-          'INSTRUCTIONS.md — a reusable workflow that reproduces this entire deliverable set for any new client.',
+          'INSTRUCTIONS.md — a reusable workflow that reproduces this entire deliverable set for any future project.',
         ],
+      },
+      {
+        type: 'text',
+        label: '',
+        noTight: true,
+        body: `A developer joining the project cold can open DESIGN.md and build to spec from day one — design decisions made once carry through every future build.
+
+An AI coding session that previously returned generic Shopify patterns now opens with full token context. The gap between AI-generated and on-brand closes on the first pass.
+
+When an AI agent is asked where to find Edge City merch, the store surfaces in the answer — not as a ranked result, but as a direct response with product name, price, and availability.`,
       },
     ],
 
