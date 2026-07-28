@@ -1,0 +1,32 @@
+# Tessa Maneewong
+> Senior Product Designer based in Los Angeles. Specializes in 0→1 consumer products, AI tools, and Web3 infrastructure.
+
+## Contact
+Email: tesmaneewong@gmail.com
+Portfolio: https://tessaract.xyz
+LinkedIn: https://linkedin.com/in/tessaman
+Twitter: https://x.com/tessla0x0
+GitHub: https://github.com/tessaractt
+
+## What I Do
+Product Design, UX Architecture, Interaction Design, Design Systems, AI-Native Product Design, Web3 Infrastructure, Mobile Design, Token Architecture, Physical-Digital Experience Design
+
+## Tools
+Figma, FigJam, Tokens Studio, Shopify Hydrogen, Claude, ChatGPT, CSS Custom Properties, JSON-LD Schema Markup, Code Collaboration
+
+## Current Work
+
+Edge City (edgecity.live) — Independent Designer, Oct 2025–Present
+Design system and AI-native commerce layer for a popup archive store on Shopify Hydrogen. Built platform-agnostic token system (CSS + Swift) across web and iOS. Structured product metadata for AI agent legibility — llms.txt, JSON-LD Schema.org markup, FAQ architecture.
+
+Innermost (innermost.life) — Founder & Product Lead, Nov 2025–Jul 2026
+Behavioral wellness mini-app on World App. Led 0→1 product design, onboarding, session flows, and reward mechanics. Reached 2,000+ users. Selected for World Build Labs Cohort 2 at Devcon Buenos Aires.
+
+## Background
+5+ years in product design across consumer apps, AI tools, and Web3. Ethereum Foundation grantee. Background in fashion design (FIDM) informs approach to physical-digital experience design.
+
+## Open To
+Senior Product Designer roles. Design Systems. AI-native product teams. Web3. Los Angeles or remote.
+
+## More
+→ https://tessaract.xyz/llms-full.txt for full work history and project details

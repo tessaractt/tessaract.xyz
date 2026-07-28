@@ -28,7 +28,7 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: 'Tessaract.xyz — Creative Studio',
-  description: 'Design and creative studio. Mini app, UX, UI, fashion, digital and physical experiences.',
+  description: 'Senior Product Designer based in Los Angeles. Product design, mini apps, AI tools, design systems, and physical-digital experiences.',
   icons: {
     icon: '/favicon.png?v=2',
     apple: '/touch-icon.png?v=2',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://tessaract.xyz'),
   openGraph: {
     title: 'Tessaract.xyz — Creative Studio',
-    description: 'Design and creative studio. Mini app, UX, UI, fashion, digital and physical experiences.',
+    description: 'Senior Product Designer based in Los Angeles. Product design, mini apps, AI tools, design systems, and physical-digital experiences.',
     url: 'https://tessaract.xyz',
     siteName: 'Tessaract.xyz',
     images: [
@@ -52,13 +52,54 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Tessaract.xyz — Creative Studio',
-    description: 'Design and creative studio. Mini app, UX, UI, fashion, digital and physical experiences.',
+    description: 'Senior Product Designer based in Los Angeles. Product design, mini apps, AI tools, design systems, and physical-digital experiences.',
     images: ['/social-preview.png'],
   },
   robots: {
     index: true,
     follow: true,
   },
+};
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Tessa Maneewong',
+  jobTitle: 'Senior Product Designer',
+  description: 'Senior Product Designer specializing in 0→1 consumer products, AI tools, and Web3 infrastructure. Based in Los Angeles.',
+  url: 'https://tessaract.xyz',
+  email: 'tesmaneewong@gmail.com',
+  sameAs: [
+    'https://www.linkedin.com/in/tessaman',
+    'https://x.com/tessla0x0',
+    'https://github.com/tessaractt',
+  ],
+  knowsAbout: [
+    'Product Design',
+    'UX Architecture',
+    'Design Systems',
+    'Token Architecture',
+    'AI-Native Products',
+    'Web3',
+    'Interaction Design',
+    'Mobile Design',
+    'Shopify Hydrogen',
+    'User Research',
+    'Physical-Digital Experience Design',
+  ],
+  hasOccupation: {
+    '@type': 'Occupation',
+    name: 'Senior Product Designer',
+    occupationLocation: {
+      '@type': 'City',
+      name: 'Los Angeles',
+    },
+    skills: 'Product Design, UX Architecture, Design Systems, AI-Native Products, Web3, Interaction Design',
+  },
+  alumniOf: [
+    { '@type': 'EducationalOrganization', name: 'FIDM' },
+    { '@type': 'EducationalOrganization', name: 'Designlab' },
+  ],
 };
 
 export default function RootLayout({
@@ -68,6 +109,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${kronaOne.variable} ${ibmPlexMono.variable}`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+      </head>
       <body>
         {children}
         <Script

@@ -1,0 +1,87 @@
+# Tessa Maneewong — Full Profile
+> Senior Product Designer based in Los Angeles. Specializes in 0→1 consumer products, AI tools, and Web3 infrastructure. Builds scalable design systems — token architecture, component libraries, and AI-native product layers — partnering closely with engineering from concept to production.
+
+## Contact
+Email: tesmaneewong@gmail.com
+Portfolio: https://tessaract.xyz
+LinkedIn: https://linkedin.com/in/tessaman
+Twitter: https://x.com/tessla0x0
+GitHub: https://github.com/tessaractt
+
+## Skills
+
+Design: UX Design, UI Design, Visual Design, Interaction Design, Design Systems, Information Architecture, Wireframing, Prototyping, Mobile Design, Responsive Design, User Research, Usability Testing
+
+Tools: Figma, FigJam, Tokens Studio, Shopify Hydrogen (React Router v7 / Shopify Oxygen), Claude, ChatGPT
+
+Technical: CSS Custom Properties, Design Token Architecture, JSON-LD Schema Markup, AI Tools Integration, Code Collaboration, Swift (design token consumption)
+
+## Work History
+
+### Edge City (edgecity.live)
+Role: Independent Designer
+Dates: October 2025 – Present
+- Designed and shipped a direct-to-consumer merch storefront on Shopify Hydrogen, end-to-end from design to production deployment
+- Built a platform-agnostic design system (CSS custom properties + Swift) governing color, surface hierarchy, shape, and motion across web and iOS; synced via Tokens Studio with no manual re-entry
+- Structured product metadata for AI agent legibility — llms.txt, JSON-LD Schema.org markup, and FAQ architecture — so the store surfaces in AI-mediated search responses
+- Authored INSTRUCTIONS.md as a reproducible onboarding workflow for developers and AI coding tools
+- Designed merch collections for each Edge City pop-up event
+
+### Innermost (innermost.life)
+Role: Founder & Product Lead
+Dates: November 2025 – July 2026
+- Led end-to-end product design for a behavioral wellness mini-app on World App, from 0→1 concept to live production
+- Selected for World Build Labs Cohort 2 (Devcon Buenos Aires)
+- Designed onboarding, daily session flows, and reward mechanics for an 8-day commitment challenge with WLD entry fee and community payout pool
+- Integrated Web3 identity and onchain primitives (World ID verification, WLD payments) into consumer-friendly UX
+- Reached 2,000+ users post-launch; partnered with software engineer to ship production-ready flows
+
+### Myosin.xyz
+Role: Contract Product Designer
+Dates: July 2025 – September 2025
+- Designed an AI-powered chatbot product for founders and marketers in the crypto ecosystem
+- Defined conversation architecture, onboarding flows, and AI-human interaction patterns
+- Partnered with engineering and PM to align UX decisions with scalable implementation
+
+### ETHDublin
+Role: Experience Designer
+Dates: March 2025 – June 2025
+- Led UX and spatial design for a multi-sensory exhibition integrating Ethereum-based technology across 8+ interactive installations
+- Coordinated cross-functional teams of technologists, artists, and organizers
+
+### Ethereum Foundation
+Role: Product Designer (Grantee)
+Dates: October 2024 – December 2024
+- Led UX and responsive web app design for a privacy-preserving social app deployed at Edge City Lanna and DevCon SEA (10,000+ users)
+- Defined interaction and visual systems spanning digital app and NFC integrations
+- Led museum-style exhibition design at DevCon SEA including NFC merch collection
+
+### FOX Tech
+Role: Product Designer
+Dates: September 2023 – May 2024
+- Led 0→1 MVP design of Verify Tool, a consumer-facing media verification product
+- Established brand identity and design system for Verify from scratch
+- Designed FOXgpt, an internal AI chatbot tool
+
+### breathing.ai
+Role: Product Designer
+Dates: July 2021 – November 2021
+- Led product redesign to relaunch public beta, collaborating with engineering and data science
+- Participant in Techstars Accelerator Program (2021)
+- Led cross-functional design team and onboarded new design interns
+
+### Fashion Industry (Sanctuary Clothing, Complete Clothing, Stony Apparel, Citron Clothing, Freelance)
+Dates: 2010 – 2020
+- 10 years designing across contemporary women's apparel
+- Production partnerships with Nordstrom, Rent the Runway, and Anthropologie
+
+## Education
+- Designlab — UX Academy, User Experience Design (2020–2021)
+- FIDM — Fashion Design (2008–2010)
+- Techstars Accelerator Program (2021)
+
+## Open To
+Senior Product Designer roles. Design Systems. AI-native product teams. Web3. Consumer apps. Los Angeles or remote.
+
+## Portfolio
+https://tessaract.xyz
