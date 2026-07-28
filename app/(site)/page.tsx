@@ -139,7 +139,7 @@ export default function HomePage() {
         <div className={aboutStyles.content}>
           <h1 className={aboutStyles.headline}>
             <ScrambleText
-              text="TESSA IS A CREATIVE BASED IN"
+              text="TESSA IS A DESIGNER BASED IN"
               className={aboutStyles.headlineBlack}
               delay={0.1}
               duration={1.5}
@@ -159,8 +159,8 @@ export default function HomePage() {
           </div>
 
           <p className={aboutStyles.services}>
-            <ScrambleText text="DESIGN, MINI APP, UX/UI, FASHION, DIGITAL AND" delay={1.1} duration={1.5} />
-            <ScrambleText text="PHYSICAL EXPERIENCES" delay={1.6} duration={1.5} />
+            <ScrambleText text="PRODUCT DESIGN, MINI APP, FASHION," delay={1.1} duration={1.5} />
+            <ScrambleText text="DIGITAL AND PHYSICAL EXPERIENCES" delay={1.6} duration={1.5} />
           </p>
         </div>
       </section>
