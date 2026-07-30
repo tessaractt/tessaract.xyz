@@ -68,6 +68,7 @@ export const projects: Project[] = [
     tags: ['web app', 'experience design', 'ZK', 'events'],
     description: 'Designed a privacy-preserving social app built on zero-knowledge cryptography, deployed to 20,000+ participants at Edge City Lanna and Devcon SEA 2024. Also directed a Cryptography Museum exhibition and crypto-themed merch collection, translating protocol-level ideas into physical and cultural expression.',
     ctas: [
+      { text: 'case study', url: 'https://medium.com/@tesmaneewong/case-study-curate-magical-real-world-cryptography-experiences-for-devcon-part-1-a42778bcfaa4' },
       { text: 'read recap', url: 'https://x.com/tessla0x0/status/1860267327629197677' }
     ],
     media: [
