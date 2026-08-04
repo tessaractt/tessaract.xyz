@@ -127,9 +127,12 @@ export default function HomePage() {
     }
   }, { dependencies: [activeAsset], scope: collageRef });
 
-  const handleAssetClick = (id: string, e: React.MouseEvent) => {
-    e.stopPropagation();
-    setActiveAsset(prev => prev === id ? null : id);
+  const handleAssetEnter = (id: string) => {
+    setActiveAsset(id);
+  };
+
+  const handleAssetLeave = () => {
+    setActiveAsset(null);
   };
 
   return (
@@ -176,13 +179,6 @@ export default function HomePage() {
 
       {/* CONTACT */}
       <section id="contact" className={contactStyles.container}>
-        {activeAsset && (
-          <div
-            className={contactStyles.overlay}
-            onClick={() => setActiveAsset(null)}
-            aria-hidden="true"
-          />
-        )}
 
         <div className={contactStyles.content}>
           <h2 className={contactStyles.heading}>LET&apos;S TALK:</h2>
@@ -203,7 +199,8 @@ export default function HomePage() {
           {COLLAGE_DATA.map((asset) => (
             <div
               key={asset.id}
-              onClick={(e) => handleAssetClick(asset.id, e)}
+              onMouseEnter={() => handleAssetEnter(asset.id)}
+              onMouseLeave={handleAssetLeave}
               className={`collageItem ${asset.id} ${asset.className} ${contactStyles.collageItemWrapper}`}
             >
               <Image

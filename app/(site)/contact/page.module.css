@@ -186,7 +186,7 @@
 /* Generic wrapper for collage assets */
 .collageItemWrapper {
   position: absolute;
-  cursor: pointer;
+  cursor: default;
   /* GSAP will animate opacity, grayscale, pointer-events inline */
 }
 

@@ -270,6 +270,20 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </header>
 
+        {/* Hero video — edge city goods only */}
+        {slug === 'edge-city-goods' && (
+          <div className={styles.heroVideo}>
+            <video
+              src="/images/tessaverse/edge-city-goods/edge city goods_coral_tee.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className={styles.heroVideoEl}
+            />
+          </div>
+        )}
+
         {/* The Bet / Brief */}
         <section className={styles.section}>
           <SectionLabel>{betLabel ?? 'the bet'}</SectionLabel>
