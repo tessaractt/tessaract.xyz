@@ -81,32 +81,27 @@ export function ScrambleText({ text, delay = 0, duration = 1.5, className = '' }
     }, [text, delay, duration]);
 
     return (
-        <span className={className} aria-label={text} title={text}>
+        <span
+            className={className}
+            aria-label={text}
+            title={text}
+            style={{ position: 'relative', display: 'inline-block' }}
+        >
+            {/* Ghost: reserves final layout (width + line count) so the scramble can't shift it */}
+            <span aria-hidden="true" style={{ visibility: 'hidden' }}>
+                {text}
+            </span>
+            {/* Animated scramble, overlaid on top of the ghost */}
             <span
                 aria-hidden="true"
                 style={{
+                    position: 'absolute',
+                    inset: 0,
                     opacity: hasStarted ? 1 : 0,
-                    transition: 'opacity 0.1s ease-out'
+                    transition: 'opacity 0.1s ease-out',
                 }}
             >
                 {displayText}
-            </span>
-            {/* Visually hidden but accessible to screen readers */}
-            <span
-                className="sr-only"
-                style={{
-                    position: 'absolute',
-                    width: 1,
-                    height: 1,
-                    padding: 0,
-                    margin: -1,
-                    overflow: 'hidden',
-                    clip: 'rect(0, 0, 0, 0)',
-                    whiteSpace: 'nowrap',
-                    border: 0
-                }}
-            >
-                {text}
             </span>
         </span>
     );
