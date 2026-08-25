@@ -18,7 +18,7 @@ const navItems = [
 ];
 
 export function Nav() {
-  const [activeSection, setActiveSection] = useState('about');
+  const [activeSection, setActiveSection] = useState<string | null>(null);
   const router = useRouter();
 
   useEffect(() => {
